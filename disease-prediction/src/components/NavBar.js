@@ -1,36 +1,70 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import logo from "../assets/logo.png";
-import "../App.css";
+import React, {useRef, useEffect } from 'react';
+import logo from '../assets/logo.png';
+import '../App.css';
 
 export const NavBar = () => {
+  const primaryNavRef = useRef(null);
+  const toggleButtonRef = useRef(null);
+
+  const handleToggleClick = () => {
+    const isExpanded = primaryNavRef.current.getAttribute('aria-expanded');
+    primaryNavRef.current.setAttribute('aria-expanded', isExpanded === 'false' ? 'true' : 'false');
+  };
+
+  const handleContainerClick = (e) => {
+    if (!primaryNavRef.current.contains(e.target) && !toggleButtonRef.current.contains(e.target)) {
+      primaryNavRef.current.setAttribute('aria-expanded', 'false');
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleContainerClick);
+
+    return () => {
+      document.removeEventListener('click', handleContainerClick);
+    };
+  }, []);
+
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">
-          <img className="logo" src={logo} alt="Logo" />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <div className="container">
+      <header className="site-header">
+        <div className="header__content--flow">
+          <section className="header-content--left">
+           
+              <img className="brand-logo" src={logo} alt="logo" />
+            
+            <button className="nav-toggle" onClick={handleToggleClick} ref={toggleButtonRef}>
+              <span className="toggle--icon"></span>
+            </button>
+          </section>
+          <section className="header-content--right">
+            <nav className="header-nav" role="navigation">
+              <ul className="nav__list" ref={primaryNavRef}>
+                <li className="list-item">
+                  <a className="nav__link" href="#home">
+                    Home
+                  </a>
+                </li>
+                <li className="list-item">
+                  <a className="nav__link" href="#about">
+                    Profiles
+                  </a>
+                </li>
+                <li className="list-item">
+                  <a className="nav__link" href="#products">
+                    Login
+                  </a>
+                </li>
+                <li className="list-item">
+                  <a className="nav__link" href="#contacts">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </section>
+        </div>
+      </header>
+    </div>
   );
 };
