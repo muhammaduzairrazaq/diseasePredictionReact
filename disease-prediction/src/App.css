@@ -278,6 +278,83 @@ body {
 
 /* Featured.js */
 
-.feature-image {
-  width: 200px;
+.section-featured {
+  margin-top: 40px;
+  padding: 10px;
 }
+
+.section-featured h2 {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 30px;
+}
+
+.featured-bottom-text {
+  margin-top: 30px;
+  color: var(--text-primary);
+  font-size: 18px;
+}
+
+.featured-bottom-text-p {
+  font-size: small;
+  color: #293754;
+}
+
+/* CenterText.js */
+
+.section-center-text {
+  margin-top: 30px;
+  padding: 10px;
+}
+
+.section-center-text h2{
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.section-center-text p {
+  font-size: 18px;
+  color: var(--text-primary);
+  margin-top: 15px;
+}
+
+.section-center-text button {
+  width: 159px;
+  height: 40px;
+  background-color: var(--bkc-primary);
+  color: white;
+  border: 1px solid var(--bkc-primary);
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+/* Divider.js */
+
+.section-divider {
+  margin-top: 50px;
+  padding: 10px;
+}
+
+.section-divider div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 339px;
+  height: 200px;
+  background: linear-gradient(to right, #CBE4FF, #C5F5F5, #CBE4FF);
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+.section-divider div button {
+  width: 159px;
+  height: 40px;
+  background-color: var(--bkc-primary);
+  color: white;
+  border: 1px solid var(--bkc-primary);
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+

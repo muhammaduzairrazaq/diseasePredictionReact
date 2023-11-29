@@ -5,11 +5,13 @@ import Carousel from "react-bootstrap/Carousel";
 export const Featured = () => {
 
     const imageStyle = {
-        width: '338px', // Set your desired width
-        height: '207px', // Set your desired height
+        width: '338px',
+        height: '207px', 
       };
 
   return (
+    <section className='section-featured' >
+      <h2>Featured</h2>
     <Carousel>
       <Carousel.Item>
         <img className="d-block w-100 rounded-5" src={featured1} style={imageStyle} alt="First slide" />
@@ -35,5 +37,8 @@ export const Featured = () => {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    <h3 className="featured-bottom-text">Track your symptoms</h3>
+    <p className="featured-bottom-text-p">Understand yours symptoms and spot patterns</p>
+    </section>
   );
 };
