@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope,  faDownload,   } from '@fortawesome/free-solid-svg-icons'
+import { faLinkedin, faSquareXTwitter, faSquareGithub } from '@fortawesome/free-brands-svg-icons'
 
 
 import "../App.css"
@@ -9,10 +9,17 @@ export const Footer = () => {
         <section className="section-footer">
             <div>
                 <h3>Find us on</h3>
-                <FontAwesomeIcon icon={faEnvelope} />
-                <FontAwesomeIcon icon={ faDownload } />
-                
+                <a href="#likedin">
+                <FontAwesomeIcon icon={faLinkedin} size='2xl'/>
+                </a>
+                <a href="#x">
+                <FontAwesomeIcon icon={faSquareXTwitter} size='2xl' />
+                </a>
+                <a href="#github">
+                <FontAwesomeIcon icon={faSquareGithub} size='2xl' />
+                </a>
             </div>
+            <p>&copy; 2023 Your Adax. All rights reserved.</p>
 
         </section>
     );
