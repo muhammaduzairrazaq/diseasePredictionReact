@@ -256,6 +256,7 @@ body {
 /* Introduction.js */
 
 .intro {
+  margin-top: 50px;
   padding: 10px;
 }
 
@@ -265,6 +266,7 @@ body {
   font-weight: 700;
   color: var(--text-primary);
   margin-top: 50px;
+  line-height: 38px;
 }
 
 .intro button {
@@ -274,8 +276,30 @@ body {
   color: white;
   border: 1px solid var(--bkc-primary);
   border-radius: 20px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
+
+.message-box {
+  display: none;
+  margin-top: 120px;
+  width: 350px;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 20px;
+  background-color: white;
+
+}
+
+.message-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.message-text {
+  padding-left: 15px;
+}
+
 
 /* Featured.js */
 
@@ -388,3 +412,17 @@ body {
 
 
 
+
+
+
+/*  Media queries */
+
+@media screen and (min-width: 768px) {
+  
+  /* showing the introduction message box */
+
+  .message-box {
+    display: block;
+  }
+  
+}
