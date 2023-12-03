@@ -8,6 +8,11 @@ import { Footer } from './components/HomePage/Footer';
 
 import { SignIn } from './components/LoginPage/SignIn';
 import { SignUp } from './components/LoginPage/SignUp';
+
+import { Bot } from './components/InteractionPage/Bot'
+import { ChatBot } from './components/InteractionPage/ChatBot'
+import { VoiceBot } from './components/InteractionPage/VoiceBot';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -19,9 +24,12 @@ function App() {
    <Featured />
    <CenterText />
    <Divider />
-    <Footer /> */}
+    <Footer />
     <SignIn />
     <SignUp />
+    <Bot />
+    <ChatBot /> */}
+    <VoiceBot />
    </div>
   );
 }
