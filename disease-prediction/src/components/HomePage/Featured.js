@@ -1,5 +1,5 @@
-import "../App.css";
-import featured1 from "../assets/f1.png";
+import "../../App.css";
+import featured1 from "../../assets/f1.png";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

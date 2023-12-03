@@ -428,6 +428,28 @@ body {
 
 
 
+/* Home Page completed */
+
+
+
+
+
+/* Starting Sign pages */
+
+
+.sign-btn {
+  background-color: var(--text-primary) !important;
+  border: 1px solid var(--text-primary) !important;
+  border-radius: 10px !important;
+}
+
+.sign-text {
+  color: var(--text-primary) !important;
+}
+
+
+
+
 
 /*  Media queries */
 

@@ -1,22 +1,27 @@
 import './App.css';
-import { NavBar } from './components/NavBar';
-import { Introduction } from './components/Introduction';
-import { Featured } from './components/Featured';
-import { CenterText } from './components/CenterText';
-import { Divider } from './components/Divider';
-import { Footer } from './components/Footer';
+import { NavBar } from './components/HomePage/NavBar';
+import { Introduction } from './components/HomePage/Introduction';
+import { Featured } from './components/HomePage/Featured';
+import { CenterText } from './components/HomePage/CenterText';
+import { Divider } from './components/HomePage/Divider';
+import { Footer } from './components/HomePage/Footer';
+
+import { SignIn } from './components/LoginPage/SignIn';
+import { SignUp } from './components/LoginPage/SignUp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
   return (
     <div className="App">
-   <NavBar />
+   {/* <NavBar />
    <Introduction />
    <Featured />
    <CenterText />
    <Divider />
-    <Footer />
+    <Footer /> */}
+    <SignIn />
+    <SignUp />
    </div>
   );
 }

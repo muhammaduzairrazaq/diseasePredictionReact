@@ -1,6 +1,6 @@
 import React, {useRef, useEffect } from 'react';
-import logo from '../assets/logo.png';
-import '../App.css';
+import logo from '../../assets/logo.png';
+import '../../App.css';
 
 export const NavBar = () => {
   const primaryNavRef = useRef(null);
@@ -47,12 +47,12 @@ export const NavBar = () => {
                 </li>
                 <li className="list-item">
                   <a className="nav__link" href="#about">
-                    Profiles
+                    Login
                   </a>
                 </li>
                 <li className="list-item">
                   <a className="nav__link" href="#products">
-                    Login
+                    Profiles
                   </a>
                 </li>
                 <li className="list-item">
