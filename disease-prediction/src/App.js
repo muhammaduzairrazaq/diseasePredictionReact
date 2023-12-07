@@ -12,6 +12,8 @@ import { SignUp } from './components/LoginPage/SignUp';
 import { Bot } from './components/InteractionPage/Bot'
 import { ChatBot } from './components/InteractionPage/ChatBot'
 import { VoiceBot } from './components/InteractionPage/VoiceBot';
+import { DiseaseReport } from './components/InteractionPage/DiseaseReport';
+import { HealthProfile } from './components/InteractionPage/HealthProfile';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -28,8 +30,10 @@ function App() {
     <SignIn />
     <SignUp />
     <Bot />
-    <ChatBot /> */}
+    <ChatBot />
     <VoiceBot />
+    < DiseaseReport /> */}
+    <HealthProfile />
    </div>
   );
 }
