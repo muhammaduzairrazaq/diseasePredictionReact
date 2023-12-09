@@ -14,6 +14,7 @@ import { ChatBot } from './components/InteractionPage/ChatBot'
 import { VoiceBot } from './components/InteractionPage/VoiceBot';
 import { DiseaseReport } from './components/InteractionPage/DiseaseReport';
 import { HealthProfile } from './components/InteractionPage/HealthProfile';
+import { DiseaseProfile } from './components/InteractionPage/DiseaseProfile';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -33,7 +34,7 @@ function App() {
     <ChatBot />
     <VoiceBot />
     < DiseaseReport /> */}
-    <HealthProfile />
+    <DiseaseProfile />
    </div>
   );
 }

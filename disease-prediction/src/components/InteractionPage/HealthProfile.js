@@ -17,10 +17,29 @@ export const HealthProfile = () => {
               <h2>Health Profiles</h2>
               <img src={Plus} alt="plus" />
             </div>
-            <div className="health-profiles">
+            <div className="health-profiles-list">
               <div className="health-profile">
                 <img src={Profile} alt="plus" />
                 <p>Name</p>
+                <div className="space-name"></div>
+                <img src={Trash} alt="plus" />
+              </div>
+              <div className="health-profile">
+                <img src={Profile} alt="plus" />
+                <p>Name</p>
+                <div className="space-name"></div>
+                <img src={Trash} alt="plus" />
+              </div>
+              <div className="health-profile">
+                <img src={Profile} alt="plus" />
+                <p>Name</p>
+                <div className="space-name"></div>
+                <img src={Trash} alt="plus" />
+              </div>
+              <div className="health-profile">
+                <img src={Profile} alt="plus" />
+                <p>Name</p>
+                <div className="space-name"></div>
                 <img src={Trash} alt="plus" />
               </div>
             </div>
