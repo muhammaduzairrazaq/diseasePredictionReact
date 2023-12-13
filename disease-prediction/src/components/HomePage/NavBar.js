@@ -1,6 +1,7 @@
 import React, {useRef, useEffect } from 'react';
 import logo from '../../assets/logo.png';
 import '../../App.css';
+import { Link } from'react-router-dom';
 
 export const NavBar = () => {
   const primaryNavRef = useRef(null);
@@ -46,9 +47,8 @@ export const NavBar = () => {
                   </a>
                 </li>
                 <li className="list-item">
-                  <a className="nav__link" href="#about">
-                    Login
-                  </a>
+                <Link to="signin" className="nav__link">Sign In</Link>
+                    
                 </li>
                 <li className="list-item">
                   <a className="nav__link" href="#products">

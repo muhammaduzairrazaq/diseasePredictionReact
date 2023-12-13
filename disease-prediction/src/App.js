@@ -1,41 +1,50 @@
-import './App.css';
-import { NavBar } from './components/HomePage/NavBar';
-import { Introduction } from './components/HomePage/Introduction';
-import { Featured } from './components/HomePage/Featured';
-import { CenterText } from './components/HomePage/CenterText';
-import { Divider } from './components/HomePage/Divider';
-import { Footer } from './components/HomePage/Footer';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HomePageComplete } from "./components/HomePage/HomePageComplete";
 
-import { SignIn } from './components/LoginPage/SignIn';
-import { SignUp } from './components/LoginPage/SignUp';
+import { SignIn } from "./components/LoginPage/SignIn";
+import { SignUp } from "./components/LoginPage/SignUp";
 
-import { Bot } from './components/InteractionPage/Bot'
-import { ChatBot } from './components/InteractionPage/ChatBot'
-import { VoiceBot } from './components/InteractionPage/VoiceBot';
-import { DiseaseReport } from './components/InteractionPage/DiseaseReport';
-import { HealthProfile } from './components/InteractionPage/HealthProfile';
-import { DiseaseProfile } from './components/InteractionPage/DiseaseProfile';
+import { Bot } from "./components/InteractionPage/Bot";
+import { ChatBot } from "./components/InteractionPage/ChatBot";
+import { VoiceBot } from "./components/InteractionPage/VoiceBot";
+import { DiseaseReport } from "./components/InteractionPage/DiseaseReport";
+import { HealthProfile } from "./components/InteractionPage/HealthProfile";
+import { DiseaseProfile } from "./components/InteractionPage/DiseaseProfile";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <div className="App">
-   {/* <NavBar />
-   <Introduction />
-   <Featured />
-   <CenterText />
-   <Divider />
-    <Footer />
-    <SignIn />
+    <Router>
+    <Routes>
+      <Route path="/" element={<HomePageComplete />} />
+      <Route path="signin" element={<SignIn />} />
+      <Route path="signup" element={<SignUp />} />
+    
+        <Route path="bot" element={<Bot />} />
+      </Routes>
+    </Router>
+
+{/* 
+<BrowserRouter>
+<Routes>
+<Route path="/interaction-page/bot" element={<Bot />} />
+</Routes>
+</BrowserRouter>
+      */}
+      
+      {/* <SignIn />
     <SignUp />
     <Bot />
     <ChatBot />
     <VoiceBot />
-    < DiseaseReport /> */}
-    <DiseaseProfile />
-   </div>
+    < DiseaseReport />
+    <DiseaseProfile /> */}
+    </div>
   );
 }
 

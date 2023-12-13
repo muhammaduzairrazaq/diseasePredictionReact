@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import {
   MDBBtn,
   MDBContainer,
@@ -32,7 +33,7 @@ export const SignIn = () => {
                 <MDBInput label='Password' id='form3' type='password'/>
               </div>
               <div className='mb-5 d-flex justify-content-left pe-5 me-4'>
-              <a href="#signup">Create an account ?</a>
+             <Link to="signup">Create a account?</Link>
               </div>
               <MDBBtn className='mb-4 sign-btn' size='lg'>Sign in</MDBBtn>
 
