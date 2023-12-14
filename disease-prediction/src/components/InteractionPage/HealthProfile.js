@@ -2,10 +2,10 @@ import "../../App.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import home from "../../assets/home.svg";
 import Plus from "../../assets/plus.svg";
 import Profile from "../../assets/profile.svg";
 import Trash from "../../assets/trash.svg";
+import { Link } from "react-router-dom";
 
 export const HealthProfile = () => {
   return (
@@ -18,30 +18,38 @@ export const HealthProfile = () => {
               <img src={Plus} alt="plus" />
             </div>
             <div className="health-profiles-list">
-              <div className="health-profile">
-                <img src={Profile} alt="plus" />
-                <p>Name</p>
-                <div className="space-name"></div>
-                <img src={Trash} alt="plus" />
-              </div>
-              <div className="health-profile">
-                <img src={Profile} alt="plus" />
-                <p>Name</p>
-                <div className="space-name"></div>
-                <img src={Trash} alt="plus" />
-              </div>
-              <div className="health-profile">
-                <img src={Profile} alt="plus" />
-                <p>Name</p>
-                <div className="space-name"></div>
-                <img src={Trash} alt="plus" />
-              </div>
-              <div className="health-profile">
-                <img src={Profile} alt="plus" />
-                <p>Name</p>
-                <div className="space-name"></div>
-                <img src={Trash} alt="plus" />
-              </div>
+              <Link to="/diseaseprofiles">
+                <div className="health-profile">
+                  <img src={Profile} alt="plus" />
+                  <p>Name</p>
+                  <div className="space-name"></div>
+                  <img src={Trash} alt="plus" />
+                </div>
+              </Link>
+              <Link to="/diseaseprofiles">
+                <div className="health-profile">
+                  <img src={Profile} alt="plus" />
+                  <p>Name</p>
+                  <div className="space-name"></div>
+                  <img src={Trash} alt="plus" />
+                </div>
+              </Link>
+              <Link to="/diseaseprofiles">
+                <div className="health-profile">
+                  <img src={Profile} alt="plus" />
+                  <p>Name</p>
+                  <div className="space-name"></div>
+                  <img src={Trash} alt="plus" />
+                </div>
+              </Link>
+              <Link to="/diseaseprofiles">
+                <div className="health-profile">
+                  <img src={Profile} alt="plus" />
+                  <p>Name</p>
+                  <div className="space-name"></div>
+                  <img src={Trash} alt="plus" />
+                </div>
+              </Link>
             </div>
           </div>
         </Col>
