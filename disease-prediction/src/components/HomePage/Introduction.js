@@ -14,7 +14,7 @@ export const Introduction = () => {
           <section className="intro">
             <h1>Hi, I am Adax. I can help you learn more about your health.</h1>
             <Link to="bot">
-            <button>Start symptom assessment</button>
+            <button className="custom-btn btn-6"><span>Start symptom assessment</span></button>
             </Link>
           </section>
         </Col>
