@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logoo.png";
 import "../../App.css";
 import { Link } from "react-router-dom";
 
@@ -38,7 +38,6 @@ export const NavBar = () => {
         <div className="header__content--flow">
           <section className="header-content--left">
             <img className="brand-logo" src={logo} alt="logo" />
-
             <button
               className="nav-toggle"
               onClick={handleToggleClick}

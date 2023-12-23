@@ -2,52 +2,57 @@ import "../../App.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logoo.png";
 import bulb from "../../assets/bulb.svg";
-import audiowave from "../../assets/audiowave.svg";
-import microphone from "../../assets/microphone.svg";
-import forward from "../../assets/forward.svg";
 import { Link } from "react-router-dom";
+import soundwave from "../../assets/soundwave.png"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAnglesRight, faMicrophone } from "@fortawesome/free-solid-svg-icons";
 
 export const VoiceBot = () => {
   return (
     <Container>
-      <Row>
-        <Col md={12}>
-          <div className="chatbot-container">
-            <div className="chatbot-message-box">
-              <img className="message-bulb" src={bulb} alt="bulb" />
-              <p>
-                If you’re experiencing serious symptoms, do not use Adax.
-                Instead, please contact emergency services.
-              </p>
-            </div>
-            <img className="bot-logo" src={logo} alt="logo" />
-            <div className="voice-bot-message-container">
-              <img className="bot-logo" src={logo} alt="logo" />
-              <div className="bot-audiowave-container">
-                <img
-                  className="bot-audiowave"
-                  src={audiowave}
-                  alt="audiowave"
-                />
-              </div>
-            </div>
-            <div className="input-container">
-              <input
-                type="text"
-                placeholder="Record your response here..."
-              ></input>
-              <img src={microphone} alt="dots" />
-            </div>
-            <div className="forward-container">
-              <Link to="/diseasereport">
-                <img className="forward-logo" src={forward} alt="forward" />
-              </Link>
-            </div>
+    <Row>
+      <Col md={12}>
+        <div className="chatbot-container">
+          <div className="chatbot-message-box">
+            <img className="message-bulb" src={bulb} alt="bulb" />
+            <p>
+              If you’re experiencing serious symptoms, do not use Adax.
+              Instead, please contact emergency services.
+            </p>
           </div>
-        </Col>
-      </Row>
-    </Container>
+          <img className="bot-logo" src={logo} alt="logo" />
+          <div className="bot-selection">
+            <button className="bot-selection-button">Use ChatBot</button>
+            <button className="bot-selection-button">Use VoiceBot</button>
+          </div>
+          <div className="bot-message-container">
+            <img className="bot-logo" src={logo} alt="logo" />
+            <img className="bot-soundwave-img" src={soundwave} alt="soundwave" />
+          </div>
+          <div className="chatbot-questions">
+            <div className="questions">
+              <p>How to use Adax?</p>
+            </div>
+            <div className="questions">How can I give written commands?</div>
+            <div className="questions">Give me a detail tour of Adax?</div>
+          </div>
+          <div className="input-container">
+            <input
+              type="text"
+              placeholder="Record your response here..."
+            ></input>
+            <FontAwesomeIcon icon={faMicrophone} className="chatbot-dots" style={{color: "#215cec",}} />
+          </div>
+          <div className="forward-container">
+            <Link to="/diseasereport">
+              <FontAwesomeIcon icon={faAnglesRight} size="2xl" />
+            </Link>
+          </div>
+        </div>
+      </Col>
+    </Row>
+  </Container>
   );
 };

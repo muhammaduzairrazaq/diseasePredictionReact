@@ -2,7 +2,7 @@ import "../../App.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logoo.png";
 import { Link } from "react-router-dom";
 
 export const Introduction = () => {
@@ -14,7 +14,7 @@ export const Introduction = () => {
           <section className="intro">
             <h1>Hi, I am Adax. I can help you learn more about your health.</h1>
             <Link to="bot">
-            <button className="custom-btn btn-6"><span>Start symptom assessment</span></button>
+            <button><span>Start symptom assessment</span></button>
             </Link>
           </section>
         </Col>
