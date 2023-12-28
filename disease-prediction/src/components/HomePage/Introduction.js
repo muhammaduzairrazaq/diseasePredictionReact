@@ -13,7 +13,7 @@ export const Introduction = () => {
         <Col xs={12} md={6}>
           <section className="intro">
             <h1>Hi, I am Adax. I can help you learn more about your health.</h1>
-            <Link to="bot">
+            <Link to="/chatbot">
             <button><span>Start symptom assessment</span></button>
             </Link>
           </section>

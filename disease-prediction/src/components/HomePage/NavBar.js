@@ -60,14 +60,9 @@ export const NavBar = () => {
                   </Link>
                 </li>
                 <li className="list-item">
-                <Link to="/healthprofiles" className="nav__link">
+                <Link to="/diseaseprofiles" className="nav__link">
                     Profiles
                   </Link>
-                </li>
-                <li className="list-item">
-                  <a className="nav__link" href="#contacts">
-                    Contact
-                  </a>
                 </li>
               </ul>
             </nav>

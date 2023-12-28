@@ -300,6 +300,7 @@ a {
 
 .message-text {
   padding-left: 15px;
+  margin-top: 12px;
 }
 
 .action-buttons:hover {
@@ -448,11 +449,10 @@ a {
 .signin-container {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
   height: 80vh;
-  margin-top: 10px;
+  margin-top: 70px;
+  gap: 10px;
 }
 
 .signin-container button {
@@ -526,7 +526,7 @@ a {
 }
 
 .bot-logo {
-  margin-bottom: 20px;
+  margin-bottom: 45px;
   margin-top: 20px;
   width: 55px;
   height: 55px;
@@ -549,7 +549,8 @@ a {
 
 .chatbot-message-box {
   min-width: 340px;
-  background-color: white;
+  background-color: #215CEC;
+  color: white;
   padding: 5px;
   border: 1px solid white;
   box-shadow: var(--shadow);
@@ -592,11 +593,10 @@ a {
   outline: none;
   background-color: white;
   padding: 10px;
-  /* border: 1px solid #215CEC; */
   border-radius: 10px;
 }
 
-.bot-selection-button:hover {
+.chatbot-button {
   background-color: #215CEC;
   color: white;
 }
@@ -604,6 +604,16 @@ a {
 .bot-message-container p {
   margin-bottom: 0;
   margin-left: 10px;
+}
+
+.custom-tooltip .tooltip-inner {
+  background-color: white;
+  color: #215CEC;
+  border: 1px solid #215CEC;
+}
+
+.custom-tooltip.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: #215CEC;
 }
 
 .chatbot-questions {
@@ -657,28 +667,16 @@ a {
 
 }
 
+
 /* VoiceBot.js */
+
+#voicebot-message-box {
+  background-color: #8246DD;
+}
 
 .bot-soundwave-img {
   height: 80px;
   width: 90%;
-}
-
-.voice-bot-message-container {
-  width: 100%;
-  max-width: 750px;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  min-width: 340px;
-  border: 1px solid white;
-  background-color: var(--bkc-sceondary);
-  border-radius: 10px;
-}
-
-.voice-bot-message-container .bot-logo {
-  width: 40px;
-  height: 40px;
 }
 
 .bot-audiowave-container {
@@ -689,7 +687,49 @@ a {
   justify-content: center;
 }
 
+.voicebot-questions {
+  border: 1px solid #8246DD;
+  border-radius: 10px;
+  height: 40px;
+  padding: 5px;
+  background-color: white;
+  color: #8246DD;
+}
+
+.voicebot-selection-button {
+  border: none;
+  outline: none;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.voicebot-button {
+  background-color: #8246DD;
+  color: white;
+}
+
+.voice-custom-tooltip .tooltip-inner {
+  background-color: white;
+  color: #8246DD;
+  border: 1px solid #8246DD;
+}
+
+.voice-custom-tooltip.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: #8246DD;
+}
+
 /* DiseaseReport.js */
+
+.main-disease-report-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.back-to-home-report {
+  margin-top: 8px;
+}
 
 .disease-report-container {
   padding: 10px;
@@ -705,6 +745,8 @@ a {
   border-radius: 10px;
   padding: 20px;
   max-width: 750px;
+  min-width: 700px;
+  min-height: 530px;
   width: 100%;
 }
 
@@ -744,8 +786,8 @@ a {
   align-items: center;
   padding: 10px;
   min-width: 340px;
-  border: 1px solid rgb(217, 255, 217);
-  background-color: rgb(217, 255, 217);
+  border: 1px solid lightgreen;
+  background-color: rgb(206, 255, 206);
   box-shadow: var(--shadow);
   border-radius: 10px;
   gap: 1rem;
@@ -756,7 +798,32 @@ a {
 }
 
 .progressbar-large {
-  margin-left: 15px;
+  width: 200px;
+}
+
+.progress {
+  margin-bottom: 7px;
+}
+
+.progressbar-tags {
+  font-size: 13px;
+  margin-bottom: 0 !important;
+
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  font-size: 10px !important;
+  fill: black !important;
+}
+
+.CircularProgressbar-path {
+  stroke: #215CEC !important;
+}
+
+.progress-bar-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -862,9 +929,13 @@ a {
 
 .disease-profile-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   margin-top: 10px;
+}
+
+.back-to-home {
+  margin-top: 50px;
+  margin-right: 10px;
 }
 
 .disease-profile-top-heading {
@@ -904,6 +975,10 @@ a {
   color: black !important;
 }
 
+.report-delete {
+  display: none;
+}
+
 .disease-profile:hover {
   background-color: white;
   border-radius: 5px;
@@ -921,9 +996,17 @@ a {
   width: 20vw;
 }
 
+.disease-profile:hover .report-date {
+  display: none;
+}
 
+.disease-profile:hover .report-delete {
+  display: inline-block;
+}
 
-
+.report-delete {
+  display: none;
+}
 
 /*  Media queries */
 
@@ -975,5 +1058,28 @@ a {
   .chatbot-questions {
     flex-direction: column;
   }
+
+}
+
+@media screen and (max-width: 763px) {
+  .progressbar-large {
+    width: 130px;
+  } 
+
+}
+
+@media screen and (max-width: 795px) {
+  .disease-report-container-background {
+    min-width: auto;
+  }
+
+
+}
+
+@media screen and (max-width: 500px) {
+  .report-date {
+    display: none;
+  }
+
 
 }

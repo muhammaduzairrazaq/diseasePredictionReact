@@ -7,6 +7,8 @@ import bulb from "../../assets/bulb.svg";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight, faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 export const ChatBot = () => {
   return (
@@ -23,8 +25,23 @@ export const ChatBot = () => {
             </div>
             <img className="bot-logo" src={logo} alt="logo" />
             <div className="bot-selection">
-              <button className="bot-selection-button">Use ChatBot</button>
-              <button className="bot-selection-button">Use VoiceBot</button>
+              <Link to="/chatbot">
+                <button className="bot-selection-button chatbot-button">
+                  Use ChatBot
+                </button>
+              </Link>
+              <Link to="/voicebot">
+                <OverlayTrigger
+                  placement="top"
+                  overlay={
+                    <Tooltip id="tooltip-top" className="custom-tooltip">
+                      Click to use <strong>VoiceBot</strong>.
+                    </Tooltip>
+                  }
+                >
+                  <button className="bot-selection-button">Use VoiceBot</button>
+                </OverlayTrigger>
+              </Link>
             </div>
             <div className="bot-message-container">
               <img className="bot-logo" src={logo} alt="logo" />
@@ -42,7 +59,11 @@ export const ChatBot = () => {
                 type="text"
                 placeholder="Enter your response here..."
               ></input>
-              <FontAwesomeIcon icon={faEllipsis} className="chatbot-dots" style={{color: "#215cec",}} />
+              <FontAwesomeIcon
+                icon={faEllipsis}
+                className="chatbot-dots"
+                style={{ color: "#215cec" }}
+              />
             </div>
             <div className="forward-container">
               <Link to="/diseasereport">
