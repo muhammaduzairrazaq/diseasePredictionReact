@@ -25,13 +25,13 @@ export const Footer = () => {
             <div>
               <h3>Find us on</h3>
               <a href="#likedin">
-                <FontAwesomeIcon icon={faLinkedin} size="2xl" />
+                <FontAwesomeIcon icon={faLinkedin} size="2xl" color="#215CEC" />
               </a>
               <a href="#x">
-                <FontAwesomeIcon icon={faSquareXTwitter} size="2xl" />
+                <FontAwesomeIcon icon={faSquareXTwitter} size="2xl" color="#215CEC" />
               </a>
               <a href="#github">
-                <FontAwesomeIcon icon={faSquareGithub} size="2xl" />
+                <FontAwesomeIcon icon={faSquareGithub} size="2xl" color="#215CEC" />
               </a>
             </div>
             <p>&copy; 2023 Your Adax. All rights reserved.</p>

@@ -11,8 +11,8 @@ export const Divider = () => {
     <div className="section-divider">
       <div>
         <p>Get started with Adax today</p>
-        <button>Download Adax</button>
-        <button>Become Partner</button>
+        <button className="action-buttons">Download Adax</button>
+        <button className="action-buttons">Become Partner</button>
       </div>
     </div>
     </Col>

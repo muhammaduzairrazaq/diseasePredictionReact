@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logoo.png";
 import { Link } from "react-router-dom";
 
 export const SignIn = () => {
@@ -24,7 +24,7 @@ export const SignIn = () => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" />
               </Form.Group>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" className="action-buttons">
                 Sign In
               </Button>
               <br />

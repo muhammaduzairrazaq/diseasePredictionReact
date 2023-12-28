@@ -16,7 +16,7 @@ export const CenterText = () => {
               Understand, manage, and get care for symptoms with trusted medical
               expertise in minutes.
             </p>
-            <button>Download Adax</button>
+            <button className="action-buttons">Download Adax</button>
           </section>
         </Col>
       </Row>
