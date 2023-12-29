@@ -74,7 +74,7 @@ export const DiseaseProfile = () => {
         <Col xs={12} md={12}>
           <div className="disease-profile-container">
           <Link to="/">
-          <span>
+          <span className="back-home">
             <FontAwesomeIcon icon={faArrowLeft} style={{ color: "#251cec", fontSize: "1.5em" }} className="back-to-home" />
           </span>
           </Link>

@@ -15,7 +15,7 @@ export const SignUp = () => {
         <Col xs={12} md={12}>
           <div className="signin-container">
           <Link to="/">
-          <span>
+          <span className="back-home">
             <FontAwesomeIcon icon={faArrowLeft} style={{ color: "#251cec", fontSize: "1.5em" }} />
           </span>
           </Link>

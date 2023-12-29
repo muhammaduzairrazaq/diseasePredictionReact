@@ -1083,3 +1083,19 @@ a {
 
 
 }
+
+@media screen and (max-width: 595px) {
+  .back-home {
+    display: none;
+  }
+  
+  .signin-container {
+    gap: 0;
+  }
+  
+  .disease-report-container {
+    padding: 0;
+  }
+
+
+}
