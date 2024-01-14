@@ -1,12 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Poppins:wght@300;500&display=swap');
 
+body {
+  display: flex;
+  flex-flow: column;
+  min-block-size: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
 
 /* NavBar.js */
 
 .App {
   padding: 10px;
+  background: linear-gradient(to bottom, #CEDEFB, #EDF6FF, #f4f9ff, #f4f8fc, #fafcfd, #ffff);
 }
 
+a {
+  text-decoration: none !important;
+}
 
 *,
 *::before,
@@ -21,16 +31,17 @@
   --bg-primary: hsl(195, 20%, 86%);
   --border-clr: hsl(195, 16%, 82%);
   --accent-blue: #293754;
-  --text-primary: #172B4D;
+  --text-primary: black;
   --text-accent: hsl(195, 2%, 78%);
-  --bkc-primary: #293754;
-
+  --bkc-primary: #215CEC;
+  --bkc-sceondary: #D6F5FA;
+  --border-dull: #CECECE;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   --header: 3.5rem;
   --full-width: 100%;
   --padding-space: calc(var(--full-width) - 2rem);
   --max-width: 80rem;
   --min-width: 22.5rem;
-
   --bd-radius: 0.5em;
   --space-025: 0.25rem;
   --space-05: 0.5rem;
@@ -39,14 +50,6 @@
 
 a {
   text-decoration: none;
-}
-
-body {
-  display: flex;
-  flex-flow: column;
-  min-block-size: 100vh;
-  font-family: 'Poppins', sans-serif;
-  /* background: linear-gradient(45deg, hsl(185, 26%, 72%), hsl(224, 66%, 82%)); */
 }
 
 .container {
@@ -62,13 +65,12 @@ body {
 .site-header {
   --padding: 1rem;
   --header-margin: 5vh;
-  --shadow: 0 0.1875em 0.3125em #0003, 0 0.125em 0.5em #0002;
   margin-block: auto;
   min-block-size: var(--header);
   background-color: #fff;
   outline: 1px solid var(--border-clr);
   border-radius: var(--bd-radius);
-  padding-inline: var(--padding);
+  padding-inline: 2px;
   box-shadow: var(--shadow);
   margin-top: 10px;
   border-radius: 30px;
@@ -78,8 +80,6 @@ body {
   block-size: inherit;
   display: flex;
   flex-flow: wrap;
-
-  /* Breakpoint 1280px > 720px */
   gap: 0 clamp(3.5rem, -24.14rem + 61.43vw, 25rem);
 }
 
@@ -97,8 +97,9 @@ body {
 }
 
 .brand-logo {
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
 }
 
 .brand-logo>svg {
@@ -113,6 +114,7 @@ body {
 
 .nav-toggle {
   height: 2.25rem;
+  color: #215CEC;
   display: inline-grid;
   place-content: center;
   background: none;
@@ -132,7 +134,7 @@ body {
   height: 0.25rem;
   border-radius: 10vh;
   position: relative;
-  background-color: black;
+  background-color: #215CEC;
 }
 
 .toggle--icon::before,
@@ -187,15 +189,10 @@ body {
   color: var(--text-primary);
   font-size: 20px;
   font-weight: 500;
-  /* text-transform: uppercase; */
 }
 
 .nav__link:focus-within {
   color: var(--accent-blue);
-}
-
-.nav__link:hover:not(:focus) {
-  border-bottom: 2px solid currentColor;
 }
 
 .nav__list:hover .nav__link:not(:focus, :hover) {
@@ -251,19 +248,31 @@ body {
   }
 }
 
-
 /* Introduction.js */
 
 .intro {
+  margin-top: 50px;
   padding: 10px;
 }
 
-
-.intro h1{
+.intro h1 {
   font-size: 30px;
   font-weight: 700;
   color: var(--text-primary);
   margin-top: 50px;
+  line-height: 38px;
+}
+
+.message-box {
+  display: none;
+  margin-top: 120px;
+  width: 350px;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: var(--shadow);
 }
 
 .intro button {
@@ -276,8 +285,817 @@ body {
   margin-top: 20px;
 }
 
+.intro button:hover {
+  background-color: #3c73ff;
+  border: 1px solid #3c73ff;
+  box-shadow: 3px 3px 4px rgba(67, 126, 255, 0.7);
+
+}
+
+.message-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.message-text {
+  padding-left: 15px;
+  margin-top: 12px;
+}
+
+.action-buttons:hover {
+  background-color: #3c73ff !important;
+  border-color: #3c73ff;
+}
+
 /* Featured.js */
 
-.feature-image {
+.section-featured {
+  margin-top: 100px;
+  padding: 10px;
+}
+
+.section-featured h2 {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 30px;
+}
+
+.featured-bottom-text {
+  margin-top: 30px;
+  color: var(--text-primary);
+  font-size: 18px;
+}
+
+.featured-bottom-text-p {
+  font-size: small;
+  color: #293754;
+}
+
+/* CenterText.js */
+
+.section-center-text {
+  margin-top: 80px;
+  padding: 10px;
+}
+
+.section-center-text h2 {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.section-center-text p {
+  font-size: 18px;
+  color: var(--text-primary);
+  margin-top: 15px;
+}
+
+.section-center-text button {
+  width: 159px;
+  height: 40px;
+  background-color: var(--bkc-primary);
+  color: white;
+  border: 1px solid var(--bkc-primary);
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+/* Divider.js */
+
+.section-divider {
+  margin-top: 150px;
+  padding: 10px;
+}
+
+.section-divider div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  background: linear-gradient(to right, #CEDEFB, #C5F5F5, #CEDEFB);
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+.section-divider div p {
+  margin-bottom: 0;
+}
+
+.section-divider div button {
+  width: 159px;
+  height: 40px;
+  background-color: var(--bkc-primary);
+  color: white;
+  border: 1px solid var(--bkc-primary);
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+/* Footer.js */
+
+.section-footer {
+  margin-top: 100px;
+  padding: 10px;
+}
+
+.section-footer div h3 {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.section-footer div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-footer div a {
+  color: #293754;
+}
+
+.section-footer p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #3f5175;
+}
+
+.footer-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: none;
+}
+
+.image-container {
+  margin-top: 130px;
+  margin-left: 70px;
+}
+
+/* Home Page completed */
+
+/* Starting Sign pages */
+/* 
+.sign-btn {
+  background-color: var(--text-primary) !important;
+  border: 1px solid var(--text-primary) !important;
+  border-radius: 10px !important;
+}
+
+.sign-text {
+  color: var(--text-primary) !important;
+} */
+
+.signin-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  margin-top: 70px;
+  gap: 10px;
+}
+
+.signin-container button {
+  border: none !important;
+  border: 1px solid #215CEC;
+  background-color: #215CEC !important;
+}
+
+
+.signin-form {
+  box-shadow: var(--shadow);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  min-width: 30%;
+  height: 520px;
+  /* min-height: 500px; */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}
+
+.form-control {
+  font-family: 'Poppins' !important;
+  font-weight: lighter !important;
+}
+
+.signin-form h2 {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 26px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.signin-logo {
+  height: 60px;
+  width: 60px;
+  margin-left: 42%;
+  border-radius: 50%;
+}
+
+.create-account {
+  margin-top: 15px;
+}
+
+/* Starting Interaction Page */
+
+/* Bot.js */
+
+.bot-container {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.bot-container p {
+  font-size: 24px;
+  margin-bottom: 60px;
+}
+
+.bot-container button {
+  width: 160px;
+  height: 60px;
+  background-color: #C5F5F5;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.bot-logo {
+  margin-bottom: 45px;
+  margin-top: 20px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+}
+
+.bot-btn-logo {
+  width: 40px;
+  height: 40px;
+}
+
+/* ChatBot.js */
+
+.chatbot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.chatbot-message-box {
+  min-width: 340px;
+  background-color: #215CEC;
+  color: white;
+  padding: 5px;
+  border: 1px solid white;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+}
+
+.chatbot-message-box p {
+  padding: 10px;
+}
+
+.bot-message-container {
+  width: 100%;
+  max-width: 750px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  min-width: 340px;
+  border: 1px solid white;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+}
+
+.bot-message-container .bot-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.bot-selection {
+  display: flex;
+  background-color: white;
+  padding: 5px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  gap: 5px;
+}
+
+.bot-selection-button {
+  border: none;
+  outline: none;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.chatbot-button {
+  background-color: #215CEC;
+  color: white;
+}
+
+.bot-message-container p {
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+.custom-tooltip .tooltip-inner {
+  background-color: white;
+  color: #215CEC;
+  border: 1px solid #215CEC;
+}
+
+.custom-tooltip.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: #215CEC;
+}
+
+.chatbot-questions {
+  margin-top: 40px;
+  display: flex;
+  gap: 1rem;
+
+}
+
+.questions {
+  border: 1px solid #215CEC;
+  border-radius: 10px;
+  height: 40px;
+  padding: 5px;
+  background-color: white;
+  color: #215CEC;
+}
+
+.input-container {
+  width: 100%;
+  background-color: white;
+  max-width: 750px;
+  margin-top: 40px;
+  display: flex;
+  padding: 5px;
+  min-width: 340px;
+  height: 70px;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+}
+
+.input-container input {
+  background-color: white;
+  width: 95%;
+  outline: none;
+  border: none;
+}
+
+.chatbot-dots {
+  margin-top: 20px;
+  font-size: 23px;
+}
+
+.forward-container {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  min-width: 340px;
+  margin-top: 10px;
+  max-width: 750px;
+
+}
+
+
+/* VoiceBot.js */
+
+#voicebot-message-box {
+  background-color: #8246DD;
+}
+
+.bot-soundwave-img {
+  height: 80px;
+  width: 90%;
+}
+
+.bot-audiowave-container {
+  width: 100%;
+  padding: 10px;
+  padding-right: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.voicebot-questions {
+  border: 1px solid #8246DD;
+  border-radius: 10px;
+  height: 40px;
+  padding: 5px;
+  background-color: white;
+  color: #8246DD;
+}
+
+.voicebot-selection-button {
+  border: none;
+  outline: none;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.voicebot-button {
+  background-color: #8246DD;
+  color: white;
+}
+
+.voice-custom-tooltip .tooltip-inner {
+  background-color: white;
+  color: #8246DD;
+  border: 1px solid #8246DD;
+}
+
+.voice-custom-tooltip.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: #8246DD;
+}
+
+/* DiseaseReport.js */
+
+.main-disease-report-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.back-to-home-report {
+  margin-top: 8px;
+}
+
+.disease-report-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.disease-report-container-background {
+  background-color: white;
+  box-shadow: var(--shadow);
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 750px;
+  min-width: 700px;
+  min-height: 530px;
+  width: 100%;
+}
+
+.top-heading {
+  width: 100%;
+  max-width: 750px;
+  margin-bottom: 40px;
+}
+
+.disease-report-container h2 {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  font-size: 26px;
+}
+
+.symptoms-container,
+.precautions-container {
+  width: 100%;
+  max-width: 750px;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.disease-report-container h3 {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.diseasereport-message-box {
+  width: 100%;
+  max-width: 750px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  min-width: 340px;
+  border: 1px solid lightgreen;
+  background-color: rgb(206, 255, 206);
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  gap: 1rem;
+}
+
+.diseasereport-message-box p {
+  margin-bottom: 0;
+}
+
+.progressbar-large {
   width: 200px;
+}
+
+.progress {
+  margin-bottom: 7px;
+}
+
+.progressbar-tags {
+  font-size: 13px;
+  margin-bottom: 0 !important;
+
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  font-size: 10px !important;
+  fill: black !important;
+}
+
+.CircularProgressbar-path {
+  stroke: #215CEC !important;
+}
+
+.progress-bar-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* HealthProfiles.js */
+
+.health-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.health-profile-top-heading {
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.health-profile-top-heading h2 {
+  margin-bottom: 0;  
+}
+
+.health-profiles-list {
+  width: 100%;
+  max-width: 750px;
+  margin-top: 50px;
+}
+
+.health-profile {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 340px;
+  max-width: 750px;
+  padding: 18px;
+  border: 1px solid white;
+  background-color: var(--bkc-sceondary);
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.health-profile p {
+  margin-bottom: 0;
+}
+
+.space-name {
+  width: 20vw;
+  background-color: #215CEC;
+}
+
+/* DiseaseProfile.js */
+/* 
+.disease-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.disease-profile-top-heading {
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.disease-profile-top-heading h2 {
+  margin-bottom: 0;
+}
+
+.disease-profiles-list {
+  width: 100%;
+  max-width: 750px;
+  margin-top: 50px;
+}
+
+.disease-profile {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 340px;
+  max-width: 750px;
+  padding: 18px;
+  border: 1px solid white;
+  background-color: var(--bkc-sceondary);
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.disease-profile p {
+  margin-bottom: 0;
+}
+
+.disease-space-name {
+  width: 20vw;
+} */
+
+
+.disease-profile-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.back-to-home {
+  margin-top: 50px;
+  margin-right: 10px;
+}
+
+.disease-profile-top-heading {
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.disease-profile-top-heading h2 {
+  margin-bottom: 0;
+}
+
+.disease-profiles-list {
+  width: 100%;
+  max-width: 750px;
+  margin-top: 50px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+  background-color: #ecf4ff;
+  border-radius: 10px;
+
+}
+
+.disease-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 750px;
+  padding: 17px;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-left: 3px solid #ecf4ff;
+  border-bottom: 1px solid gainsboro;
+  background-color: #ecf4ff;
+  color: black !important;
+}
+
+.report-delete {
+  display: none;
+}
+
+.disease-profile:hover {
+  background-color: white;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom: 1px solid white;
+  border-left: 3px solid #215CEC;
+}
+
+.disease-profile p {
+  margin-bottom: 0;
+}
+
+.disease-space-name {
+  width: 20vw;
+}
+
+.disease-profile:hover .report-date {
+  display: none;
+}
+
+.disease-profile:hover .report-delete {
+  display: inline-block;
+}
+
+.report-delete {
+  display: none;
+}
+
+/*  Media queries */
+
+@media screen and (min-width: 768px) {
+
+  /* Introduction */
+
+  .message-box {
+    display: block;
+  }
+
+  /* Featured */
+
+  .image-featured {
+    height: 270px !important;
+  }
+
+  /* Divider */
+
+  .section-divider div {
+    flex-direction: row;
+    gap: 2rem;
+    height: 100px;
+    border-radius: 50px;
+  }
+
+  .section-divider div button {
+    margin-top: 0;
+  }
+
+  /* Footer */
+
+  .footer-logo {
+    display: block;
+  }
+
+}
+
+@media screen and (min-width: 992px) {
+
+  /* Divider */
+
+  .section-divider div p {
+    margin-right: 20rem;
+  }
+}
+
+@media screen and (max-width: 797px) {
+  .chatbot-questions {
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width: 763px) {
+  .progressbar-large {
+    width: 130px;
+  } 
+
+}
+
+@media screen and (max-width: 795px) {
+  .disease-report-container-background {
+    min-width: auto;
+  }
+
+
+}
+
+@media screen and (max-width: 500px) {
+  .report-date {
+    display: none;
+  }
+
+
+}
+
+@media screen and (max-width: 595px) {
+  .back-home {
+    display: none;
+  }
+  
+  .signin-container {
+    gap: 0;
+  }
+  
+  .disease-report-container {
+    padding: 0;
+  }
+
+
 }
