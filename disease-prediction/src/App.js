@@ -1,11 +1,8 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HomePageComplete } from "./components/HomePage/HomePageComplete";
-
 import { SignIn } from "./components/LoginPage/SignIn";
 import { SignUp } from "./components/LoginPage/SignUp";
-
-import { Bot } from "./components/InteractionPage/Bot";
 import { ChatBot } from "./components/InteractionPage/ChatBot";
 import { VoiceBot } from "./components/InteractionPage/VoiceBot";
 import { DiseaseReport } from "./components/InteractionPage/DiseaseReport";
@@ -22,7 +19,6 @@ function App() {
           <Route path="/" element={<HomePageComplete />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="signup" element={<SignUp />} />
-          <Route path="bot" element={<Bot />} />
           <Route path="chatbot" element={<ChatBot />} />
           <Route path="voicebot" element={<VoiceBot />} />
           <Route path="diseasereport" element={<DiseaseReport />} />
