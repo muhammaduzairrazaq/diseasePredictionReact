@@ -8,7 +8,7 @@ import logo from "../../assets/logoo.png";
 import bulb from "../../assets/bulb.svg";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretRight, faMicrophone } from "@fortawesome/free-solid-svg-icons";
+import { faCaretRight, faMicrophone, faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
@@ -122,14 +122,7 @@ export const ChatBot = () => {
             <div className="chat-container">
               <div className="bot-message-container">
                 <p>
-                  Great! what’s your name ? That’s correct! In React, when
-                  you’re updating state based on the previous state, you should
-                  use a function that takes the previous state as an argument.
-                  This ensures that you’re working with the most recent
-                  state.That’s correct! In React, when you’re updating state
-                  based on the previous state, you should use a function that
-                  takes the previous state as an argument. This ensures that
-                  you’re working with the most recent state.
+                  Great! what’s your name?
                 </p>
               </div>
               <div className="user-message-container">
@@ -137,51 +130,29 @@ export const ChatBot = () => {
               </div>
               <div className="bot-message-container">
                 <p>
-                  Great! what’s your name ? That’s correct! In React, when
-                  you’re updating state based on the previous state, you should
-                  use a function that takes the previous state as an argument.
-                  This ensures that you’re working with the most recent
-                  state.That’s correct! In React, when you’re updating state
-                  based on the previous state, you should use a function that
-                  takes the previous state as an argument. This ensures that
-                  you’re working with the most recent state.
+                 Hi, Uzair tell me how can I help you in your medical assessment?
                 </p>
               </div>
               <div className="user-message-container">
-                <p>Hi, my name is uzair.</p>
+                <p>I am feeling a little dizzy</p>
               </div>
               <div className="bot-message-container">
                 <p>
-                  Great! what’s your name ? That’s correct! In React, when
-                  you’re updating state based on the previous state, you should
-                  use a function that takes the previous state as an argument.
-                  This ensures that you’re working with the most recent
-                  state.That’s correct! In React, when you’re updating state
-                  based on the previous state, you should use a function that
-                  takes the previous state as an argument. This ensures that
-                  you’re working with the most recent state.
+                 Is there any thing else you are feeling about? 
                 </p>
               </div>
               <div className="user-message-container">
                 <p>
-                  Hi, my name is uzair. and i study in comsats university vehari
-                  campus. i want to know about a disease from you
+                 Yeah I am feeling a little cold, pain in back of my head and flue also.
                 </p>
               </div>
               <div className="bot-message-container">
                 <p>
-                  Great! what’s your name ? That’s correct! In React, when
-                  you’re updating state based on the previous state, you should
-                  use a function that takes the previous state as an argument.
-                  This ensures that you’re working with the most recent
-                  state.That’s correct! In React, when you’re updating state
-                  based on the previous state, you should use a function that
-                  takes the previous state as an argument. This ensures that
-                  you’re working with the most recent state.
+                 Okay, according to your symptoms you have a fever take proper medicines and rest you will be fine.
                 </p>
               </div>
               <div className="user-message-container">
-                <p>Hi, my name is uzair.</p>
+                <p>Thanks for your suggestions.</p>
               </div>
             </div>
             <div className="chatbot-questions">
@@ -214,7 +185,12 @@ export const ChatBot = () => {
                 </Link>
               </div>
             </div>
-          </div>
+            <div className="bottom-container">
+            <button className="restart-button">
+            <FontAwesomeIcon icon={faRotateRight} />
+            </button>
+            </div>
+            </div>
         </Col>
       </Row>
     </Container>
