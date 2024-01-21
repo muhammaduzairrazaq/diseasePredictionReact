@@ -8,13 +8,13 @@ function Progress() {
     const et = 25;
   return (
     <div>
-      <p className="progressbar-tags">Prediction Accuracy</p>
+      <p className="progressbar-tags">ChatBot Message</p>
       <ProgressBar striped variant="success" animated now={pa} label={`${pa}%`} />
-      <p className="progressbar-tags">Entered Symptoms</p>
+      <p className="progressbar-tags">User Response</p>
       <ProgressBar striped variant="info" animated now={es} label={`${es}%`} />
-      <p className="progressbar-tags">Provided Precautions</p>
+      <p className="progressbar-tags">Text Message</p>
       <ProgressBar striped variant="warning" animated now={pp} label={`${pp}%`} />
-      <p className="progressbar-tags">Required Emergencey Treatment</p>
+      <p className="progressbar-tags">Voice Message</p>
       <ProgressBar striped variant="danger" animated now={et} label={`${et}%`} />
     </div>
   );

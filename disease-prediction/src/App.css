@@ -5,7 +5,9 @@ body {
   flex-flow: column;
   min-block-size: 100vh;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to top, #CEDEFB,#dbe7ff,#ffff);
+  /* background: linear-gradient(to top, #CEDEFB,#dbe7ff,#ffff); */
+  background: linear-gradient(90deg, rgb(239, 242, 247) 0%, 7.60286%, rgb(237, 240, 249) 15.2057%, 20.7513%, rgb(235, 239, 248) 26.297%, 27.6386%, rgb(235, 239, 248) 28.9803%, 38.2826%, rgb(231, 237, 249) 47.585%, 48.1216%, rgb(230, 236, 250) 48.6583%, 53.1306%, rgb(228, 236, 249) 57.6029%, 61.5385%, rgb(227, 234, 250) 65.4741%, 68.7835%, rgb(222, 234, 250) 72.093%, 75.7603%, rgb(219, 230, 248) 79.4275%, 82.8265%, rgb(216, 229, 248) 86.2254%, 87.8354%, rgb(213, 228, 249) 89.4454%, 91.8605%, rgb(210, 226, 249) 94.2755%, 95.4383%, rgb(209, 225, 248) 96.6011%, 98.3005%, rgb(208, 224, 247) 100%);
+
 
 }
 
@@ -544,6 +546,12 @@ a {
 
 /* ChatBot.js */
 
+.main-chatbot-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12rem;
+}
+
 .chatbot-container {
   display: flex;
   flex-direction: column;
@@ -619,14 +627,39 @@ a {
 .restart-button {
   border: none;
   outline: none;
-  width: 60px;
-  height: 60px;
+  margin-top: 20px;
+  width: 50px;
+  height: 50px;
   background-color: #215CEC;
   color: white;
   padding: 10px;
   border-radius: 50%;
 }
 
+/* .scrolled-background {
+  background-color: transparent !important;
+  position: sticky;
+  top: 10px;
+  color: goldenrod;
+} */
+
+.progress-tracker {
+  background-color: transparent;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  height: 400px;
+  position: sticky;
+  top: 10px;
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+.tracker-heading {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
 
 
 .bot-selection {
@@ -866,6 +899,7 @@ a {
 
 .progressbar-tags {
   font-size: 13px;
+  margin-top: 20px;
   margin-bottom: 0 !important;
 
 }
