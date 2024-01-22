@@ -636,12 +636,12 @@ a {
   border-radius: 50%;
 }
 
-/* .scrolled-background {
+.scrolled-background {
   background-color: transparent !important;
   position: sticky;
   top: 10px;
   color: goldenrod;
-} */
+}
 
 .progress-tracker {
   background-color: transparent;
