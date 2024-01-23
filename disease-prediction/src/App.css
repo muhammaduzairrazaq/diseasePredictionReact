@@ -758,6 +758,23 @@ a {
   border-radius: 10px;
 }
 
+/* Testing chat container */
+.chat-container {
+  max-height: 300px !important;
+  border: 1px solid red;
+  overflow-y: scroll;
+}
+.chat-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* .fixed-container {
+  background-color: red;
+  position: absolute;
+  bottom: 0px;
+  padding-bottom: 8px;
+} */
+
 .input-box {
   display: flex;
 }
