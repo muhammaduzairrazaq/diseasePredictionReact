@@ -572,6 +572,34 @@ a {
   padding: 10px;
 }
 
+.responding-tag {
+  border: 1px solid #215CEC;
+  background-color: #eaf1ff;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  gap: 0.7rem;
+  border-radius: 10px;
+  display: none;
+}
+
+.responding-tag-show {
+  display: flex;
+}
+
+.responding-tag p {
+  margin-bottom: 0;
+  color: #215CEC;
+}
+
+.responding-block {
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  background-color: #215CEC;
+  border: 1px solid #215CEC;
+}
+
 .chat-container {
   width: 100%;
   margin-bottom: 4rem;
@@ -702,7 +730,10 @@ a {
   margin-top: 40px;
   display: flex;
   gap: 1rem;
+}
 
+.chatbot-questions-hide {
+  display: none;
 }
 
 .questions {

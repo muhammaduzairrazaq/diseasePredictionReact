@@ -63,6 +63,8 @@ export const ChatBot = () => {
   const [counter, setCounter] = useState(1);
   const chatbotResponse = () => {
     const chatContainer = document.getElementsByClassName("chat-container")[0];
+    const chatbotQuestions = document.getElementsByClassName("chatbot-questions")[0];
+    const respondingContainer = document.getElementsByClassName("responding-tag")[0];
     const div = document.createElement("div");
     if (counter >= chatbotResponses.length) {
       setCounter(1);
@@ -73,13 +75,19 @@ export const ChatBot = () => {
     div.appendChild(p);
     chatContainer.appendChild(div);
     setCounter((preCount) => preCount + 1);
+    chatbotQuestions.classList.remove("chatbot-questions-hide");
+    respondingContainer.classList.remove("responding-tag-show");
   };
 
   const handleForward = () => {
     const chatContainer = document.getElementsByClassName("chat-container")[0];
     const textarea = document.getElementsByClassName("text-area")[0];
+    const chatbotQuestions = document.getElementsByClassName("chatbot-questions")[0];
+    const respondingContainer = document.getElementsByClassName("responding-tag")[0];
 
-    if (textarea.value != "") {
+    if (textarea.value !== "") {
+      chatbotQuestions.classList.add("chatbot-questions-hide");
+      respondingContainer.classList.add("responding-tag-show");
       const div = document.createElement("div");
       div.classList.add("user-message-container");
       const p = document.createElement("p");
@@ -93,6 +101,10 @@ export const ChatBot = () => {
       }, 2000);
     }
   };
+
+  const handleReload = () => {
+    window.location.reload();
+  }
 
   return (
     <Container>
@@ -137,16 +149,17 @@ export const ChatBot = () => {
                 <div className="bot-message-container">
                   <p>Great! what’s your name?</p>
                 </div>
-                {/* <div className="user-message-container">
-                  <p>Hi, my name is uzair.</p>
-                </div> */}
               </div>
               <div className="chatbot-questions">
                 <div className="questions">
-                  <p>How to use Adax?</p>
+                  How to use Adax?
                 </div>
                 <div className="questions">How can I give voice commands?</div>
                 <div className="questions">Give me a detail tour of Adax?</div>
+              </div>
+              <div className="responding-tag">
+                <div className="responding-block"></div>
+                <p>Responding...</p>
               </div>
               <div className="input-container">
                 <div className="input-box">
@@ -163,15 +176,6 @@ export const ChatBot = () => {
                     style={{ color: "#215cec" }}
                   />
                 </div>
-                {/* <div className="forward-container">
-                  <Link to="/diseasereport">
-                    <FontAwesomeIcon
-                      icon={faCaretRight}
-                      className="chatbot-dots"
-                      style={{ color: "#215cec" }}
-                    />
-                  </Link>
-                </div> */}
                 <div className="forward-container" onClick={handleForward}>
                   <FontAwesomeIcon
                     icon={faCaretRight}
@@ -189,7 +193,7 @@ export const ChatBot = () => {
                     </Tooltip>
                   }
                 >
-                  <button className="restart-button">
+                  <button className="restart-button" onClick={handleReload}>
                     <FontAwesomeIcon icon={faRotateRight} />
                   </button>
                 </OverlayTrigger>
