@@ -19,6 +19,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 
 export const ChatBot = () => {
   const [textareaHeight, setTextareaHeight] = useState(40);
+  const [scroll, setScroll] = useState(0);
 
   const handleKeyDown = (e) => {
     const textarea = document.getElementsByClassName("text-area")[0];
@@ -33,41 +34,26 @@ export const ChatBot = () => {
     }
   };
 
-  const [scrolled, setScrolled] = useState(false);
-
-  const handleScroll = () => {
-    const scrollPosition = window.scrollY;
-    const threshold = 10;
-    if (scrollPosition > threshold) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   const chatbotResponses = [
     "Great! what’s your name?",
     "Hi, Uzair tell me how can I help you in your medical assessment?",
     "Is there any thing else you are feeling about?",
     "Okay, according to your symptoms you have a fever take proper medicines and rest you will be fine.",
+    "Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?"
   ];
 
   const [counter, setCounter] = useState(1);
   const chatbotResponse = () => {
+    const scrollableContainer = document.getElementsByClassName(
+      "scrollable-container"
+    )[0];
     const chatContainer = document.getElementsByClassName("chat-container")[0];
     const chatbotQuestions =
       document.getElementsByClassName("chatbot-questions")[0];
     const respondingContainer =
       document.getElementsByClassName("responding-tag")[0];
-    const div = document.createElement("div");
+    const div = document.createElement("div");      setScroll((prevScroll) => prevScroll + 1000);
+
     if (counter >= chatbotResponses.length) {
       setCounter(1);
     }
@@ -76,6 +62,9 @@ export const ChatBot = () => {
     p.textContent = chatbotResponses[counter];
     div.appendChild(p);
     chatContainer.appendChild(div);
+    chatContainer.appendChild(div);
+    scrollableContainer.scrollTo(scroll, scroll + 1000);
+    setScroll((prevScroll) => prevScroll + 1000);
     setCounter((preCount) => preCount + 1);
     chatbotQuestions.classList.remove("chatbot-questions-hide");
     respondingContainer.classList.remove("responding-tag-show");
@@ -84,6 +73,9 @@ export const ChatBot = () => {
   const handleForward = () => {
     const chatContainer = document.getElementsByClassName("chat-container")[0];
     const textarea = document.getElementsByClassName("text-area")[0];
+    const scrollableContainer = document.getElementsByClassName(
+      "scrollable-container"
+    )[0];
     const chatbotQuestions =
       document.getElementsByClassName("chatbot-questions")[0];
     const respondingContainer =
@@ -98,6 +90,8 @@ export const ChatBot = () => {
       p.textContent = textarea.value;
       div.appendChild(p);
       chatContainer.appendChild(div);
+      scrollableContainer.scrollTo(scroll, scroll + 1000);
+      setScroll((prevScroll) => prevScroll + 1000);
       textarea.value = "";
       setTextareaHeight(40);
       setTimeout(() => {
@@ -116,42 +110,40 @@ export const ChatBot = () => {
         <Col md={12}>
           <div className="main-chatbot-container">
             <div className="chatbot-container">
-              <div
-                className={`chatbot-message-box${
-                  scrolled ? " scrolled-background" : ""
-                }`}
-              >
-                <img className="message-bulb" src={bulb} alt="bulb" />
-                <p>
-                  If you’re experiencing serious symptoms, do not use Adax.
-                  Instead, please contact emergency services.
-                </p>
-              </div>
-              <img className="bot-logo" src={logo} alt="logo" />
-              <div className="bot-selection">
-                <Link to="/chatbot">
-                  <button className="bot-selection-button chatbot-button">
-                    Use ChatBot
-                  </button>
-                </Link>
-                <Link to="/voicebot">
-                  <OverlayTrigger
-                    placement="top"
-                    overlay={
-                      <Tooltip id="tooltip-top" className="custom-tooltip">
-                        Click to use <strong>VoiceBot</strong>.
-                      </Tooltip>
-                    }
-                  >
-                    <button className="bot-selection-button">
-                      Use VoiceBot
+              <div className="scrollable-container">
+                <div className="chatbot-message-box">
+                  <img className="message-bulb" src={bulb} alt="bulb" />
+                  <p>
+                    If you’re experiencing serious symptoms, do not use Adax.
+                    Instead, please contact emergency services.
+                  </p>
+                </div>
+                <img className="bot-logo" src={logo} alt="logo" />
+                <div className="bot-selection">
+                  <Link to="/chatbot">
+                    <button className="bot-selection-button chatbot-button">
+                      Use ChatBot
                     </button>
-                  </OverlayTrigger>
-                </Link>
-              </div>
-              <div className="chat-container">
-                <div className="bot-message-container">
-                  <p>Great! what’s your name?</p>
+                  </Link>
+                  <Link to="/voicebot">
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={
+                        <Tooltip id="tooltip-top" className="custom-tooltip">
+                          Click to use <strong>VoiceBot</strong>.
+                        </Tooltip>
+                      }
+                    >
+                      <button className="bot-selection-button">
+                        Use VoiceBot
+                      </button>
+                    </OverlayTrigger>
+                  </Link>
+                </div>
+                <div className="chat-container">
+                  <div className="bot-message-container">
+                    <p>Great! what’s your name?</p>
+                  </div>
                 </div>
               </div>
               <div className="chatbot-questions">
