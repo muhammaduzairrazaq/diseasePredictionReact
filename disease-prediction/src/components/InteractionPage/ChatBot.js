@@ -63,8 +63,10 @@ export const ChatBot = () => {
   const [counter, setCounter] = useState(1);
   const chatbotResponse = () => {
     const chatContainer = document.getElementsByClassName("chat-container")[0];
-    const chatbotQuestions = document.getElementsByClassName("chatbot-questions")[0];
-    const respondingContainer = document.getElementsByClassName("responding-tag")[0];
+    const chatbotQuestions =
+      document.getElementsByClassName("chatbot-questions")[0];
+    const respondingContainer =
+      document.getElementsByClassName("responding-tag")[0];
     const div = document.createElement("div");
     if (counter >= chatbotResponses.length) {
       setCounter(1);
@@ -82,8 +84,10 @@ export const ChatBot = () => {
   const handleForward = () => {
     const chatContainer = document.getElementsByClassName("chat-container")[0];
     const textarea = document.getElementsByClassName("text-area")[0];
-    const chatbotQuestions = document.getElementsByClassName("chatbot-questions")[0];
-    const respondingContainer = document.getElementsByClassName("responding-tag")[0];
+    const chatbotQuestions =
+      document.getElementsByClassName("chatbot-questions")[0];
+    const respondingContainer =
+      document.getElementsByClassName("responding-tag")[0];
 
     if (textarea.value !== "") {
       chatbotQuestions.classList.add("chatbot-questions-hide");
@@ -104,7 +108,7 @@ export const ChatBot = () => {
 
   const handleReload = () => {
     window.location.reload();
-  }
+  };
 
   return (
     <Container>
@@ -151,9 +155,7 @@ export const ChatBot = () => {
                 </div>
               </div>
               <div className="chatbot-questions">
-                <div className="questions">
-                  How to use Adax?
-                </div>
+                <div className="questions">How to use Adax?</div>
                 <div className="questions">How can I give voice commands?</div>
                 <div className="questions">Give me a detail tour of Adax?</div>
               </div>
