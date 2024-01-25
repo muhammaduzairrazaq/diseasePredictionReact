@@ -1,5 +1,5 @@
 import "../../App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Container from "react-bootstrap/Container";
 import Progress from "./ChatBotMeter";
@@ -38,8 +38,7 @@ export const ChatBot = () => {
     "Great! what’s your name?",
     "Hi, Uzair tell me how can I help you in your medical assessment?",
     "Is there any thing else you are feeling about?",
-    "Okay, according to your symptoms you have a fever take proper medicines and rest you will be fine.",
-    "Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?Great! what’s your name?"
+    "Disease predicted successfully you can view your report ",
   ];
 
   const [counter, setCounter] = useState(1);
@@ -52,17 +51,24 @@ export const ChatBot = () => {
       document.getElementsByClassName("chatbot-questions")[0];
     const respondingContainer =
       document.getElementsByClassName("responding-tag")[0];
-    const div = document.createElement("div");      setScroll((prevScroll) => prevScroll + 1000);
 
-    if (counter >= chatbotResponses.length) {
-      setCounter(1);
-    }
+    const div = document.createElement("div");
+    setScroll((prevScroll) => prevScroll + 1000);
     div.classList.add("bot-message-container");
     const p = document.createElement("p");
     p.textContent = chatbotResponses[counter];
+    // for last message
+    if (counter >= 3) {
+      const anchor = document.createElement("a");
+      anchor.href = "/diseasereport";
+      anchor.textContent = "View Report";
+      p.appendChild(anchor);
+    }
+
     div.appendChild(p);
     chatContainer.appendChild(div);
     chatContainer.appendChild(div);
+
     scrollableContainer.scrollTo(scroll, scroll + 1000);
     setScroll((prevScroll) => prevScroll + 1000);
     setCounter((preCount) => preCount + 1);
@@ -98,6 +104,13 @@ export const ChatBot = () => {
         chatbotResponse();
       }, 2000);
     }
+  };
+
+  const handleMicrophone = () => {
+    const textarea = document.getElementsByClassName("text-area")[0];
+    textarea.placeholder = "Please speak...";
+    const inputContainer = document.getElementsByClassName("input-container")[0];
+    inputContainer.classList.add("input-container-border");
   };
 
   const handleReload = () => {
@@ -165,6 +178,7 @@ export const ChatBot = () => {
                     style={{ height: `${textareaHeight}px` }}
                   ></textarea>
                   <FontAwesomeIcon
+                    onClick={handleMicrophone}
                     icon={faMicrophone}
                     className="chatbot-dots"
                     style={{ color: "#215cec" }}

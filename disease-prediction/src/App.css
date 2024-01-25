@@ -749,6 +749,7 @@ a {
 .input-container {
   width: 100%;
   background-color: white;
+  border: 2px solid white;
   max-width: 750px;
   margin-top: 30px;
   padding: 10px;
@@ -757,6 +758,10 @@ a {
   height: auto;
   box-shadow: var(--shadow);
   border-radius: 10px;
+}
+
+.input-container-border {
+  border: 2px solid #c1d3ff;
 }
 
 .scrollable-container {
