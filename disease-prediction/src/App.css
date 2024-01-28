@@ -796,8 +796,7 @@ a {
 
 
 .input-container-border {
-  border: 2px solid #c1d3ff;
-    box-shadow: 5px 5px 5px #a3bdff;
+    box-shadow: 3px 3px 25px #a3bdff;
 }
 
 .scrollable-container {
@@ -837,13 +836,12 @@ a {
 }
 
 .input-container textarea {
-  height: 100%;
+  height: auto;
   background-color: white;
   width: 95%;
   outline: none;
   border: none;
   width: 100%;
-  height: 100%;
   resize: none;
   overflow: hidden;
 }

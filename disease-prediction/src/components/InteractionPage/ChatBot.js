@@ -16,6 +16,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
+import { Recored } from "./VoiceRecord";
 
 export const ChatBot = () => {
   const [textareaHeight, setTextareaHeight] = useState(40);
@@ -109,7 +110,8 @@ export const ChatBot = () => {
   const handleMicrophone = () => {
     const textarea = document.getElementsByClassName("text-area")[0];
     textarea.placeholder = "Please speak...";
-    const inputContainer = document.getElementsByClassName("input-container")[0];
+    const inputContainer =
+      document.getElementsByClassName("input-container")[0];
     inputContainer.classList.add("input-container-border");
   };
 
@@ -168,30 +170,7 @@ export const ChatBot = () => {
                 <div className="responding-block"></div>
                 <p>Responding...</p>
               </div>
-              <div className="input-container">
-                <div className="input-box">
-                  <textarea
-                    autoFocus
-                    className="text-area"
-                    onKeyDown={handleKeyDown}
-                    placeholder="Enter your response here..."
-                    style={{ height: `${textareaHeight}px` }}
-                  ></textarea>
-                  <FontAwesomeIcon
-                    onClick={handleMicrophone}
-                    icon={faMicrophone}
-                    className="chatbot-dots"
-                    style={{ color: "#215cec" }}
-                  />
-                </div>
-                <div className="forward-container" onClick={handleForward}>
-                  <FontAwesomeIcon
-                    icon={faCaretRight}
-                    className="chatbot-dots"
-                    style={{ color: "#215cec" }}
-                  />
-                </div>
-              </div>
+              <Recored />
               <div className="bottom-container">
                 <OverlayTrigger
                   placement="top"
