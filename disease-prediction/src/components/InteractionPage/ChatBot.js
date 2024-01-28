@@ -1,6 +1,5 @@
 import "../../App.css";
-import React, { useState } from "react";
-
+import { React, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Progress from "./ChatBotMeter";
 import Row from "react-bootstrap/Row";
@@ -9,30 +8,16 @@ import logo from "../../assets/logoo.png";
 import bulb from "../../assets/bulb.svg";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCaretRight,
-  faMicrophone,
-  faRotateRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { Recored } from "./VoiceRecord";
 
 export const ChatBot = () => {
-  const [textareaHeight, setTextareaHeight] = useState(40);
   const [scroll, setScroll] = useState(0);
 
-  const handleKeyDown = (e) => {
-    const textarea = document.getElementsByClassName("text-area")[0];
-    if (textarea.value === "") {
-      setTextareaHeight(40);
-    } else if (e.key === "Backspace") {
-      if (textareaHeight > 40) {
-        setTextareaHeight((prevHeight) => prevHeight - 5);
-      }
-    } else if (e.key === "Enter") {
-      setTextareaHeight((prevHeight) => prevHeight + 20);
-    }
+  const handleReload = () => {
+    window.location.reload();
   };
 
   const chatbotResponses = [
@@ -58,7 +43,6 @@ export const ChatBot = () => {
     div.classList.add("bot-message-container");
     const p = document.createElement("p");
     p.textContent = chatbotResponses[counter];
-    // for last message
     if (counter >= 3) {
       const anchor = document.createElement("a");
       anchor.href = "/diseasereport";
@@ -77,9 +61,8 @@ export const ChatBot = () => {
     respondingContainer.classList.remove("responding-tag-show");
   };
 
-  const handleForward = () => {
+  const handleClickQuestions = (question) => {
     const chatContainer = document.getElementsByClassName("chat-container")[0];
-    const textarea = document.getElementsByClassName("text-area")[0];
     const scrollableContainer = document.getElementsByClassName(
       "scrollable-container"
     )[0];
@@ -88,35 +71,24 @@ export const ChatBot = () => {
     const respondingContainer =
       document.getElementsByClassName("responding-tag")[0];
 
-    if (textarea.value !== "") {
-      chatbotQuestions.classList.add("chatbot-questions-hide");
-      respondingContainer.classList.add("responding-tag-show");
-      const div = document.createElement("div");
-      div.classList.add("user-message-container");
-      const p = document.createElement("p");
-      p.textContent = textarea.value;
-      div.appendChild(p);
-      chatContainer.appendChild(div);
-      scrollableContainer.scrollTo(scroll, scroll + 1000);
-      setScroll((prevScroll) => prevScroll + 1000);
-      textarea.value = "";
-      setTextareaHeight(40);
-      setTimeout(() => {
-        chatbotResponse();
-      }, 2000);
-    }
+    chatbotQuestions.classList.add("chatbot-questions-hide");
+    respondingContainer.classList.add("responding-tag-show");
+    const div = document.createElement("div");
+    div.classList.add("user-message-container");
+    const p = document.createElement("p");
+    p.textContent = question;
+    div.appendChild(p);
+    chatContainer.appendChild(div);
+    scrollableContainer.scrollTo(scroll, scroll + 1000);
+    setScroll((prevScroll) => prevScroll + 1000);
+    setTimeout(() => {
+      chatbotResponse();
+    }, 2000);
   };
 
-  const handleMicrophone = () => {
-    const textarea = document.getElementsByClassName("text-area")[0];
-    textarea.placeholder = "Please speak...";
-    const inputContainer =
-      document.getElementsByClassName("input-container")[0];
-    inputContainer.classList.add("input-container-border");
-  };
-
-  const handleReload = () => {
-    window.location.reload();
+  const handleQuestion = (event) => {
+    const textContent = event.target.textContent;
+    handleClickQuestions(textContent);
   };
 
   return (
@@ -162,9 +134,15 @@ export const ChatBot = () => {
                 </div>
               </div>
               <div className="chatbot-questions">
-                <div className="questions">How to use Adax?</div>
-                <div className="questions">How can I give voice commands?</div>
-                <div className="questions">Give me a detail tour of Adax?</div>
+                <div onClick={handleQuestion} className="questions">
+                  How to use Adax?
+                </div>
+                <div onClick={handleQuestion} className="questions">
+                  How can I give voice commands?
+                </div>
+                <div onClick={handleQuestion} className="questions">
+                  Give me a detail tour of Adax?
+                </div>
               </div>
               <div className="responding-tag">
                 <div className="responding-block"></div>

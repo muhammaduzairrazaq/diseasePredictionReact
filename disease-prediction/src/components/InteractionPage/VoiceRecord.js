@@ -42,7 +42,6 @@ export const Recored = () => {
     div.classList.add("bot-message-container");
     const p = document.createElement("p");
     p.textContent = chatbotResponses[counter];
-    // for last message
     if (counter >= 3) {
       const anchor = document.createElement("a");
       anchor.href = "/diseasereport";
@@ -106,6 +105,9 @@ export const Recored = () => {
       document.getElementsByClassName("input-container")[0];
     const textarea = document.getElementsByClassName("text-area")[0];
     if (isListening === false) {
+      if (textarea.value !== "") {
+        textarea.value = "";
+      }
       SpeechRecognition.startListening({ continuous: true, language: "en-US" });
       inputContainer.classList.add("input-container-border");
       textarea.placeholder = "Please speak...";
@@ -138,6 +140,18 @@ export const Recored = () => {
     }
   };
 
+  const handleClick = () => {
+    const inputContainer =
+      document.getElementsByClassName("input-container")[0];
+    const textarea = document.getElementsByClassName("text-area")[0];
+    if (isListening === true) {
+      SpeechRecognition.stopListening();
+      inputContainer.classList.remove("input-container-border");
+      textarea.placeholder = "Enter your response here...";
+      setIsListening(false);
+    }
+  };
+
   return (
     <div className="input-container">
       <div className="input-box">
@@ -147,6 +161,7 @@ export const Recored = () => {
           className="text-area"
           placeholder="Enter your response here..."
           onInput={handleInput}
+          onClick={handleClick}
           onKeyDown={handleBack}
           style={{ height: `${textareaHeight}px` }}
         ></textarea>
