@@ -97,6 +97,7 @@ export const ChatBot = () => {
       <Row>
         <Col xs={12}>
           <div className="main-chatbot-container">
+            
             <div className="chatbot-container">
               <div className="scrollable-container">
                 <div className="chatbot-message-box">
