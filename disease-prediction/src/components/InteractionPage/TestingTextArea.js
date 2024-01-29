@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const AutoResizingTextarea = () => {
-  const [textareaValue, setTextareaValue] = useState('');
+  const [textareaValue, setTextareaValue] = useState("");
   const [textareaHeight, setTextareaHeight] = useState(40); // Initial height
 
   const handleInput = (event) => {
@@ -13,10 +13,10 @@ const AutoResizingTextarea = () => {
 
   return (
     <textarea
-    //   value={textareaValue}
+      //   value={textareaValue}
       style={{
         height: `${textareaHeight}px`,
-        overflow: 'hidden', // Hide the scrollbar
+        overflow: "hidden", // Hide the scrollbar
       }}
       onInput={handleInput}
       placeholder="Enter text..."
