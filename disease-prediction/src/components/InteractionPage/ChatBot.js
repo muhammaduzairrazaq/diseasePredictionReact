@@ -95,7 +95,7 @@ export const ChatBot = () => {
   return (
     <Container>
       <Row>
-        <Col md={12}>
+        <Col xs={12}>
           <div className="main-chatbot-container">
             <div className="chatbot-container">
               <div className="scrollable-container">
@@ -150,7 +150,7 @@ export const ChatBot = () => {
                 <p>Responding...</p>
               </div>
               <Recored />
-              <div className="bottom-container">
+              {/* <div className="bottom-container">
                 <OverlayTrigger
                   placement="top"
                   overlay={
@@ -163,12 +163,12 @@ export const ChatBot = () => {
                     <FontAwesomeIcon icon={faRotateRight} />
                   </button>
                 </OverlayTrigger>
-              </div>
+              </div> */}
             </div>
-            <div className="progress-tracker">
+            {/* <div className="progress-tracker">
               <p className="tracker-heading">ChatBot Meter</p>
               <Progress />
-            </div>
+            </div> */}
           </div>
         </Col>
       </Row>

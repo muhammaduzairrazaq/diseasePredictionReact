@@ -3,6 +3,10 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import { faCaretRight, faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -154,6 +158,10 @@ export const Recored = () => {
   };
 
   return (
+    <Container >
+    <Row>
+      <Col>
+   
     <div className="input-container">
       <div className="input-box">
         <textarea
@@ -181,5 +189,8 @@ export const Recored = () => {
         />
       </div>
     </div>
+    </Col>
+    </Row>
+    </Container>
   );
 };

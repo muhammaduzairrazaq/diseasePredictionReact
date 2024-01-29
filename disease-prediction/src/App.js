@@ -8,10 +8,8 @@ import { VoiceBot } from "./components/InteractionPage/VoiceBot";
 import { DiseaseReport } from "./components/InteractionPage/DiseaseReport";
 import { HealthProfile } from "./components/InteractionPage/HealthProfile";
 import { DiseaseProfile } from "./components/InteractionPage/DiseaseProfile";
-import { Recored } from "./components/InteractionPage/VoiceRecord";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import AutoResizingTextarea from "./components/InteractionPage/TestingTextArea";
 
 function App() {
   return (
@@ -28,9 +26,6 @@ function App() {
           <Route path="diseaseprofiles" element={<DiseaseProfile />} />
         </Routes>
       </Router>
-      {/* <AutoResizingTextarea /> */}
-
-      {/* <Recored /> */}
 
       {/* 
 <BrowserRouter>

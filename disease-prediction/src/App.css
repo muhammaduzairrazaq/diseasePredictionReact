@@ -205,6 +205,18 @@ a {
   color: var(--text-accent);
 }
 
+@media (max-width: 767px) {
+  .progress-tracker {
+    display: none;
+  }
+  
+  .main-chatbot-container {
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
 @media (max-width: 575px) {
   .header-content--left {
     justify-content: space-between;
@@ -813,7 +825,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 61vh !important;
+  /* height: 61vh !important; */
   /* border: 1px solid red; */
   overflow-y: scroll;
 }
