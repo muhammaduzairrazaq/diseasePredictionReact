@@ -45,6 +45,7 @@ export const ChatBot = () => {
     p.textContent = chatbotResponses[counter];
     if (counter >= 3) {
       const anchor = document.createElement("a");
+      anchor.classList.add("underline");
       anchor.href = "/diseasereport";
       anchor.textContent = "View Report";
       p.appendChild(anchor);

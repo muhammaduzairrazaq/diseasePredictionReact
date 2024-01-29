@@ -737,6 +737,10 @@ a {
   cursor: pointer;
 }
 
+.underline {
+  text-decoration: underline !important;
+}
+
 .chatbot-questions-hide {
   display: none;
 }
@@ -770,7 +774,8 @@ a {
   margin-left: auto;
   margin-right: auto;
   border: 2px solid pink;
-  box-shadow: 3px 3px 3px rgb(255, 135, 155); ;
+  box-shadow: 3px 3px 3px rgb(255, 135, 155);
+  ;
   border-radius: 20px;
   width: 500px;
   height: 400px;
@@ -790,7 +795,8 @@ a {
 .recorded-button button {
   padding: 10px;
   background-color: pink;
-  box-shadow: 5px 5px 5px rgb(255, 172, 186); ;
+  box-shadow: 5px 5px 5px rgb(255, 172, 186);
+  ;
   border-radius: 10px;
   border: 2px solid pink;
   color: white;
@@ -800,21 +806,21 @@ a {
 
 
 .input-container-border {
-    box-shadow: 3px 3px 25px #a3bdff;
+  box-shadow: 3px 3px 25px #a3bdff;
 }
 
 .scrollable-container {
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 61vh !important;
-    /* border: 1px solid red; */
-    overflow-y: scroll;
+  flex-direction: column;
+  align-items: center;
+  height: 61vh !important;
+  /* border: 1px solid red; */
+  overflow-y: scroll;
 }
 
 .scrollable-container::-webkit-scrollbar {
   display: none;
-} 
+}
 
 /* Testing chat container */
 
