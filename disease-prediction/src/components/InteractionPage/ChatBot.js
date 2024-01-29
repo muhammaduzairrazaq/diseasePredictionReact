@@ -151,7 +151,7 @@ export const ChatBot = () => {
                 <p>Responding...</p>
               </div>
               <Recored />
-              {/* <div className="bottom-container">
+              <div className="bottom-container">
                 <OverlayTrigger
                   placement="top"
                   overlay={
@@ -164,12 +164,12 @@ export const ChatBot = () => {
                     <FontAwesomeIcon icon={faRotateRight} />
                   </button>
                 </OverlayTrigger>
-              </div> */}
+              </div>
             </div>
-            {/* <div className="progress-tracker">
+            <div className="progress-tracker">
               <p className="tracker-heading">ChatBot Meter</p>
               <Progress />
-            </div> */}
+            </div>
           </div>
         </Col>
       </Row>
