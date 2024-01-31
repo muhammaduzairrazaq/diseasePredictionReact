@@ -135,6 +135,7 @@ export const ChatBot = () => {
                   </div>
                 </div>
               </div>
+              <div className="questions-responding-container">
               <div className="chatbot-questions">
                 <div onClick={handleQuestion} className="questions">
                   How to use Adax?
@@ -149,6 +150,7 @@ export const ChatBot = () => {
               <div className="responding-tag">
                 <div className="responding-block"></div>
                 <p>Responding...</p>
+              </div>
               </div>
               <Recored />
               <div className="bottom-container">

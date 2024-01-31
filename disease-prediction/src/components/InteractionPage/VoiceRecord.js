@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../../App.css";
 
-export const Recored = () => {
+export const Recored = ({ maincolor="#215CEC" }) => {
   const { transcript, browserSupportsSpeechRecognition } =
     useSpeechRecognition();
   // if (!browserSupportsSpeechRecognition) {
@@ -178,14 +178,14 @@ export const Recored = () => {
           onClick={handleMicrophone}
           icon={faMicrophone}
           className="chatbot-dots"
-          style={{ color: "#215cec" }}
+          style={{ color: maincolor }}
         />
       </div>
       <div className="forward-container" onClick={handleForward}>
         <FontAwesomeIcon
           icon={faCaretRight}
           className="chatbot-dots"
-          style={{ color: "#215cec" }}
+          style={{ color: maincolor }}
         />
       </div>
     </div>
