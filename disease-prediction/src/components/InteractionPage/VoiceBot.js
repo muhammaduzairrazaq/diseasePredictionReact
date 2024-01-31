@@ -103,6 +103,7 @@ export const VoiceBot = () => {
                 <div className="chatbot-message-box" id="voicebot-message-box">
                   <img className="message-bulb" src={bulb} alt="bulb" />
                   <p>
+                    
                     If you’re experiencing serious symptoms, do not use Adax.
                     Instead, please contact emergency services.
                   </p>
