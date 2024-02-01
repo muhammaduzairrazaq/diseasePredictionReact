@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../../App.css";
 
-export const Recored = ({ maincolor="#215CEC" }) => {
+export const Recored = ({ maincolor = "#215CEC", bot="chatbot" }) => {
   const { transcript, browserSupportsSpeechRecognition } =
     useSpeechRecognition();
   // if (!browserSupportsSpeechRecognition) {
@@ -82,7 +82,8 @@ export const Recored = ({ maincolor="#215CEC" }) => {
 
     if (isListening === true) {
       SpeechRecognition.stopListening();
-      inputContainer.classList.remove("input-container-border");
+      if(bot==="chatbot")inputContainer.classList.remove("input-container-border");
+      else inputContainer.classList.remove("voicebot-input-container-border");
       textarea.placeholder = "Enter your response here...";
       setIsListening(false);
     }
@@ -91,7 +92,8 @@ export const Recored = ({ maincolor="#215CEC" }) => {
       chatbotQuestions.classList.add("chatbot-questions-hide");
       respondingContainer.classList.add("responding-tag-show");
       const div = document.createElement("div");
-      div.classList.add("user-message-container");
+      if(bot==="chatbot")div.classList.add("user-message-container");
+      else div.classList.add("voicebot-user-message-container");
       const p = document.createElement("p");
       p.textContent = textarea.value;
       div.appendChild(p);
@@ -114,14 +116,16 @@ export const Recored = ({ maincolor="#215CEC" }) => {
         textarea.value = "";
       }
       SpeechRecognition.startListening({ continuous: true, language: "en-US" });
-      inputContainer.classList.add("input-container-border");
+      if(bot==="chatbot")inputContainer.classList.add("input-container-border");
+      else inputContainer.classList.add("voicebot-input-container-border");
       textarea.placeholder = "Please speak...";
       setIsListening(true);
     }
 
     if (isListening === true) {
       SpeechRecognition.stopListening();
-      inputContainer.classList.remove("input-container-border");
+      if(bot==="chatbot")inputContainer.classList.remove("input-container-border");
+      else inputContainer.classList.remove("voicebot-input-container-border");
       textarea.placeholder = "Enter your response here...";
       setIsListening(false);
     }
@@ -151,46 +155,46 @@ export const Recored = ({ maincolor="#215CEC" }) => {
     const textarea = document.getElementsByClassName("text-area")[0];
     if (isListening === true) {
       SpeechRecognition.stopListening();
-      inputContainer.classList.remove("input-container-border");
+      if(bot==="chatbot")inputContainer.classList.remove("input-container-border");
+      else inputContainer.classList.remove("voicebot-input-container-border");
       textarea.placeholder = "Enter your response here...";
       setIsListening(false);
     }
   };
 
   return (
-    <Container >
-    <Row>
-      <Col>
-   
-    <div className="input-container">
-      <div className="input-box">
-        <textarea
-          defaultValue={transcript}
-          autoFocus
-          className="text-area"
-          placeholder="Enter your response here..."
-          onInput={handleInput}
-          onClick={handleClick}
-          onKeyDown={handleBack}
-          style={{ height: `${textareaHeight}px` }}
-        ></textarea>
-        <FontAwesomeIcon
-          onClick={handleMicrophone}
-          icon={faMicrophone}
-          className="chatbot-dots"
-          style={{ color: maincolor }}
-        />
-      </div>
-      <div className="forward-container" onClick={handleForward}>
-        <FontAwesomeIcon
-          icon={faCaretRight}
-          className="chatbot-dots"
-          style={{ color: maincolor }}
-        />
-      </div>
-    </div>
-    </Col>
-    </Row>
+    <Container>
+      <Row>
+        <Col>
+          <div className="input-container">
+            <div className="input-box">
+              <textarea
+                defaultValue={transcript}
+                autoFocus
+                className="text-area"
+                placeholder="Enter your response here..."
+                onInput={handleInput}
+                onClick={handleClick}
+                onKeyDown={handleBack}
+                style={{ height: `${textareaHeight}px` }}
+              ></textarea>
+              <FontAwesomeIcon
+                onClick={handleMicrophone}
+                icon={faMicrophone}
+                className="chatbot-dots"
+                style={{ color: maincolor }}
+              />
+            </div>
+            <div className="forward-container" onClick={handleForward}>
+              <FontAwesomeIcon
+                icon={faCaretRight}
+                className="chatbot-dots"
+                style={{ color: maincolor }}
+              />
+            </div>
+          </div>
+        </Col>
+      </Row>
     </Container>
   );
 };

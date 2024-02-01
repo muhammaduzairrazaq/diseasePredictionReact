@@ -5,12 +5,8 @@ body {
   flex-flow: column;
   min-block-size: 100vh;
   font-family: 'Poppins', sans-serif;
-  /* background: linear-gradient(to top, #CEDEFB,#dbe7ff,#ffff); */
-  background: linear-gradient(90deg, rgb(239, 242, 247) 0%, 7.60286%, rgb(237, 240, 249) 15.2057%, 20.7513%, rgb(235, 239, 248) 26.297%, 27.6386%, rgb(235, 239, 248) 28.9803%, 38.2826%, rgb(231, 237, 249) 47.585%, 48.1216%, rgb(230, 236, 250) 48.6583%, 53.1306%, rgb(228, 236, 249) 57.6029%, 61.5385%, rgb(227, 234, 250) 65.4741%, 68.7835%, rgb(222, 234, 250) 72.093%, 75.7603%, rgb(219, 230, 248) 79.4275%, 82.8265%, rgb(216, 229, 248) 86.2254%, 87.8354%, rgb(213, 228, 249) 89.4454%, 91.8605%, rgb(210, 226, 249) 94.2755%, 95.4383%, rgb(209, 225, 248) 96.6011%, 98.3005%, rgb(208, 224, 247) 100%);
-
-
+  background: linear-gradient(to top, rgb(239, 242, 247) 0%, 7.60286%, rgb(237, 240, 249) 15.2057%, 20.7513%, rgb(235, 239, 248) 26.297%, 27.6386%, rgb(235, 239, 248) 28.9803%, 38.2826%, rgb(231, 237, 249) 47.585%, 48.1216%, rgb(230, 236, 250) 48.6583%, 53.1306%, rgb(228, 236, 249) 57.6029%, 61.5385%, rgb(227, 234, 250) 65.4741%, 68.7835%, rgb(222, 234, 250) 72.093%, 75.7603%, rgb(219, 230, 248) 79.4275%, 82.8265%, rgb(216, 229, 248) 86.2254%, 87.8354%, rgb(213, 228, 249) 89.4454%, 91.8605%, rgb(210, 226, 249) 94.2755%, 95.4383%, rgb(209, 225, 248) 96.6011%, 98.3005%, rgb(208, 224, 247) 100%);
 }
-
 
 /* NavBar.js */
 
@@ -593,8 +589,7 @@ a {
 
 .questions-responding-container {
   margin-top: 80px;
-  height: 50px;
-  max-height: 164px;
+  height: 57px;
 }
 
 .chatbot-message-box {
@@ -767,7 +762,8 @@ a {
   gap: 1rem;
 }
 
-.questions, .voicebot {
+.questions,
+.voicebot {
   cursor: pointer;
 }
 
@@ -803,6 +799,7 @@ a {
 .input-container-border {
   box-shadow: 3px 3px 25px #a3bdff;
 }
+
 
 .scrollable-container {
   display: flex;
@@ -874,8 +871,17 @@ a {
   border-radius: 10px;
 }
 
+.voicebot-user-message-container p {
+  margin-bottom: 0;
+}
+
+.voicebot-input-container-border {
+  box-shadow: 3px 3px 25px #c6a0ff;
+}
+
 .voicebot-responding-tag {
   border: 1px solid #8246DD;
+  background-color: #ece0ff;
 }
 
 .voicebot-responding-tag .responding-block {
@@ -1206,11 +1212,7 @@ a {
 
 /*  Media queries */
 
-@media screen and (max-width: 797px) {
-  /* .responding-tag {
-    margin-bottom: 119px;
-  } */
-}
+
 
 @media screen and (min-width: 768px) {
 
@@ -1259,6 +1261,10 @@ a {
 @media screen and (max-width: 797px) {
   .chatbot-questions {
     flex-direction: column;
+  }
+
+  .questions-responding-container {
+    height: 155px;
   }
 
 }

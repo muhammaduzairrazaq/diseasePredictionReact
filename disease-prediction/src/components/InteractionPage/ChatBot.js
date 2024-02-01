@@ -92,6 +92,10 @@ export const ChatBot = () => {
     handleClickQuestions(textContent);
   };
 
+  const handleBotButton = () => {
+    document.body.style.background = 'linear-gradient(90deg, rgb(238, 237, 243) 0%, 0.77381%, rgb(239, 238, 244) 1.54762%, 6.72619%, rgb(239, 236, 243) 11.9048%, 12.381%, rgb(240, 237, 244) 12.8571%, 27.9167%, rgb(242, 236, 244) 42.9762%, 51.9048%, rgb(239, 236, 243) 60.8333%, 61.9643%, rgb(238, 235, 246) 63.0952%, 66.7262%, rgb(235, 234, 249) 70.3571%, 73.2738%, rgb(232, 232, 248) 76.1905%, 77.1429%, rgb(230, 231, 248) 78.0952%, 79.9405%, rgb(228, 229, 249) 81.7857%, 84.1667%, rgb(227, 228, 248) 86.5476%, 87.0238%, rgb(226, 227, 248) 87.5%, 89.3452%, rgb(224, 224, 252) 91.1905%, 95.5952%, rgb(220, 223, 252) 100%)';
+  }
+
   return (
     <Container>
       <Row>
@@ -123,7 +127,7 @@ export const ChatBot = () => {
                         </Tooltip>
                       }
                     >
-                      <button className="bot-selection-button">
+                      <button className="bot-selection-button" onClick={handleBotButton}>
                         Use VoiceBot
                       </button>
                     </OverlayTrigger>
