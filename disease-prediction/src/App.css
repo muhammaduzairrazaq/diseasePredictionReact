@@ -974,28 +974,25 @@ a {
   margin-top: 15px;
 }
 
+.disease-report-list li {
+  list-style: none;
+  display: inline-block;
+  line-height: 1.8rem;
+  margin-left: 8px;
+}
+
+.disease-span {
+  display: flex;
+  justify-content: center;
+}
+
+.disease-span li {
+  margin-top: -4px;
+}
+
 .disease-report-container h3 {
   margin-bottom: 15px;
   font-size: 24px;
-}
-
-.diseasereport-message-box {
-  width: 100%;
-  max-width: 750px;
-  margin-top: 30px;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  min-width: 340px;
-  border: 1px solid lightgreen;
-  background-color: rgb(206, 255, 206);
-  box-shadow: var(--shadow);
-  border-radius: 10px;
-  gap: 1rem;
-}
-
-.diseasereport-message-box p {
-  margin-bottom: 0;
 }
 
 .progressbar-large {

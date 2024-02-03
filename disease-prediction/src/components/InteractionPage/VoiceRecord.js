@@ -7,17 +7,14 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { faCaretRight, faMicrophone } from "@fortawesome/free-solid-svg-icons";
+import { faCaretRight, faMicrophone, } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../../App.css";
 
-export const Recored = ({ maincolor = "#215CEC", bot="chatbot" }) => {
+export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
   const { transcript, browserSupportsSpeechRecognition } =
     useSpeechRecognition();
-  // if (!browserSupportsSpeechRecognition) {
-  //   return null;
-  // }
 
   const [isListening, setIsListening] = useState(false);
   const [textareaHeight, setTextareaHeight] = useState(40);
@@ -82,7 +79,8 @@ export const Recored = ({ maincolor = "#215CEC", bot="chatbot" }) => {
 
     if (isListening === true) {
       SpeechRecognition.stopListening();
-      if(bot==="chatbot")inputContainer.classList.remove("input-container-border");
+      if (bot === "chatbot")
+        inputContainer.classList.remove("input-container-border");
       else inputContainer.classList.remove("voicebot-input-container-border");
       textarea.placeholder = "Enter your response here...";
       setIsListening(false);
@@ -92,7 +90,7 @@ export const Recored = ({ maincolor = "#215CEC", bot="chatbot" }) => {
       chatbotQuestions.classList.add("chatbot-questions-hide");
       respondingContainer.classList.add("responding-tag-show");
       const div = document.createElement("div");
-      if(bot==="chatbot")div.classList.add("user-message-container");
+      if (bot === "chatbot") div.classList.add("user-message-container");
       else div.classList.add("voicebot-user-message-container");
       const p = document.createElement("p");
       p.textContent = textarea.value;
@@ -108,6 +106,9 @@ export const Recored = ({ maincolor = "#215CEC", bot="chatbot" }) => {
   };
 
   const handleMicrophone = () => {
+    if (!browserSupportsSpeechRecognition) {
+      return null;
+    }
     const inputContainer =
       document.getElementsByClassName("input-container")[0];
     const textarea = document.getElementsByClassName("text-area")[0];
@@ -116,7 +117,8 @@ export const Recored = ({ maincolor = "#215CEC", bot="chatbot" }) => {
         textarea.value = "";
       }
       SpeechRecognition.startListening({ continuous: true, language: "en-US" });
-      if(bot==="chatbot")inputContainer.classList.add("input-container-border");
+      if (bot === "chatbot")
+        inputContainer.classList.add("input-container-border");
       else inputContainer.classList.add("voicebot-input-container-border");
       textarea.placeholder = "Please speak...";
       setIsListening(true);
@@ -124,7 +126,8 @@ export const Recored = ({ maincolor = "#215CEC", bot="chatbot" }) => {
 
     if (isListening === true) {
       SpeechRecognition.stopListening();
-      if(bot==="chatbot")inputContainer.classList.remove("input-container-border");
+      if (bot === "chatbot")
+        inputContainer.classList.remove("input-container-border");
       else inputContainer.classList.remove("voicebot-input-container-border");
       textarea.placeholder = "Enter your response here...";
       setIsListening(false);
@@ -155,7 +158,8 @@ export const Recored = ({ maincolor = "#215CEC", bot="chatbot" }) => {
     const textarea = document.getElementsByClassName("text-area")[0];
     if (isListening === true) {
       SpeechRecognition.stopListening();
-      if(bot==="chatbot")inputContainer.classList.remove("input-container-border");
+      if (bot === "chatbot")
+        inputContainer.classList.remove("input-container-border");
       else inputContainer.classList.remove("voicebot-input-container-border");
       textarea.placeholder = "Enter your response here...";
       setIsListening(false);
