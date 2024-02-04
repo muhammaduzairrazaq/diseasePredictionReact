@@ -112,15 +112,12 @@ export const DiseaseReport = () => {
                       <div className="precautions-container">
                         <h3>Disease diagnosis</h3>
                         <ul className="disease-report-list">
-                          <span className="disease-span">
+                          <span>
                             <FontAwesomeIcon
                               icon={faCircleExclamation}
                               style={{ color: "#EF5354", fontSize: "1em" }}
                             />
-                            <li>
-                              Sunt aute nostrud est nulla sunt with the fever
-                              what you think now brother you are messed up.
-                            </li>
+                            <li>Sunt aute nostrud est nulla sunt.</li>
                           </span>
                         </ul>
                       </div>
