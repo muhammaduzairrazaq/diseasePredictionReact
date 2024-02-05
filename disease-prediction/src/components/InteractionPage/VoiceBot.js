@@ -12,9 +12,16 @@ import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { Recored } from "./VoiceRecord";
+import AudioWave from "./AudioWave";
+import { useSpeechSynthesis } from "react-speech-kit";
 
 export const VoiceBot = () => {
+  const { speak } = useSpeechSynthesis();
   const [scroll, setScroll] = useState(0);
+
+  const speakBot = (sentence) => {
+    speak({ text: sentence });
+  };
 
   const handleReload = () => {
     window.location.reload();
@@ -50,6 +57,8 @@ export const VoiceBot = () => {
       anchor.textContent = "View Report";
       p.appendChild(anchor);
     }
+
+    speakBot(p.textContent);
 
     div.appendChild(p);
     chatContainer.appendChild(div);
@@ -141,8 +150,12 @@ export const VoiceBot = () => {
                     </button>
                   </Link>
                 </div>
+                <AudioWave />
                 <div className="chat-container">
-                  <div className="bot-message-container">
+                  {/* <div className="bot-message-container">
+                    <p>Great! what’s your name?</p>
+                  </div> */}
+                  <div className="test-voicebot-message-container">
                     <p>Great! what’s your name?</p>
                   </div>
                 </div>

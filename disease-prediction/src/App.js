@@ -15,7 +15,7 @@ import { Speech } from "./components/VoiceHandleing/Speech";
 function App() {
   return (
     <div className="App">
-      {/* <Router>
+      <Router>
         <Routes>
           <Route path="/" element={<HomePageComplete />} />
           <Route path="signin" element={<SignIn />} />
@@ -26,9 +26,8 @@ function App() {
           <Route path="healthprofiles" element={<HealthProfile />} />
           <Route path="diseaseprofiles" element={<DiseaseProfile />} />
         </Routes>
-      </Router> */}
+      </Router>
       
-      <Speech />
 
       {/* 
 <BrowserRouter>
