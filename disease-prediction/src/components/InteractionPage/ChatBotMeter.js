@@ -1,11 +1,17 @@
 import ProgressBar from "react-bootstrap/ProgressBar";
+import React, { useContext } from "react";
 import "../../App.css";
+import Count from "../../context/Counter";
+
+// const [chatBotMessageCount, setchatBotMessage] = useState(1);
+// const [userResponseCount, setUserResponse] = useState(0);
+// const [textMessageCount, setTextMessage] = useState(0);
+// const [voiceMessageCount, setVoiceMessage] = useState(0);
 
 function Progress() {
-  const pa = 80;
-  const es = 40;
-  const pp = 100;
-  const et = 25;
+  const [chatBotMessageCount, setchatBotMessage] = useContext(Count);
+  const [userResponseCount, setUserResponse] = useContext(Count);
+
   return (
     <div>
       <p className="progressbar-tags">ChatBot Message</p>
@@ -13,12 +19,18 @@ function Progress() {
         striped
         variant="success"
         animated
-        now={pa}
-        label={`${pa}%`}
+        now={chatBotMessageCount}
+        label={`${chatBotMessageCount}%`}
       />
       <p className="progressbar-tags">User Response</p>
-      <ProgressBar striped variant="info" animated now={es} label={`${es}%`} />
-      <p className="progressbar-tags">Text Message</p>
+      <ProgressBar
+        striped
+        variant="info"
+        animated
+        now={userResponseCount}
+        label={`${userResponseCount}%`}
+      />
+      {/* <p className="progressbar-tags">Text Message</p>
       <ProgressBar
         striped
         variant="warning"
@@ -33,7 +45,7 @@ function Progress() {
         animated
         now={et}
         label={`${et}%`}
-      />
+      /> */}
     </div>
   );
 }

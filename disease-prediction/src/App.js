@@ -8,26 +8,32 @@ import { VoiceBot } from "./components/InteractionPage/VoiceBot";
 import { DiseaseReport } from "./components/InteractionPage/DiseaseReport";
 import { HealthProfile } from "./components/InteractionPage/HealthProfile";
 import { DiseaseProfile } from "./components/InteractionPage/DiseaseProfile";
+import Count from "./context/Counter";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Speech } from "./components/VoiceHandleing/Speech";
+import { useState } from "react";
 
 function App() {
+  const [chatBotMessageCount, setchatBotMessage] = useState(1);
+  const [userResponseCount, setUserResponse] = useState(0);
+
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePageComplete />} />
-          <Route path="signin" element={<SignIn />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="chatbot" element={<ChatBot />} />
-          <Route path="voicebot" element={<VoiceBot />} />
-          <Route path="diseasereport" element={<DiseaseReport />} />
-          <Route path="healthprofiles" element={<HealthProfile />} />
-          <Route path="diseaseprofiles" element={<DiseaseProfile />} />
-        </Routes>
-      </Router>
-      
+      <Count.Provider value={[chatBotMessageCount, setchatBotMessage, userResponseCount, setUserResponse]}>
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomePageComplete />} />
+            <Route path="signin" element={<SignIn />} />
+            <Route path="signup" element={<SignUp />} />
+            <Route path="chatbot" element={<ChatBot />} />
+            <Route path="voicebot" element={<VoiceBot />} />
+            <Route path="diseasereport" element={<DiseaseReport />} />
+            <Route path="healthprofiles" element={<HealthProfile />} />
+            <Route path="diseaseprofiles" element={<DiseaseProfile />} />
+          </Routes>
+        </Router>
+      </Count.Provider>
 
       {/* 
 <BrowserRouter>

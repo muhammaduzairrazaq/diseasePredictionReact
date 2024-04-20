@@ -27,15 +27,17 @@ export const VoiceBot = () => {
     window.location.reload();
   };
 
-  const chatbotResponses = [
-    "Great! what’s your name?",
-    "Hi, Uzair tell me how can I help you in your medical assessment?",
-    "Is there any thing else you are feeling about?",
-    "Disease predicted successfully you can view your report ",
-  ];
+  const chatbotResponses = {
+    "What is Adax?":
+      "Adax is an intelligent disease diagnosis system that helps users identify diseases based on their symptoms. It utilizes a Neural Network model to provide accurate diagnoses.",
+    "How to use Adax?":
+      "To use Adax, simply interact with the chat bot or voice bot interface provided. You can enter your symptoms, and Adax will analyze them to provide a diagnosis. Alternatively, you can speak your symptoms for a hands-free experience.",
+    "How Adax dianosis diseases?":
+      "Adax diagnoses diseases by analyzing the symptoms provided by the user. It employs a sophisticated Neural Network model trained on medical data to accurately match symptoms with potential diseases, providing users with reliable diagnoses.",
+  };
 
   const [counter, setCounter] = useState(1);
-  const chatbotResponse = () => {
+  const chatbotResponse = (question) => {
     const scrollableContainer = document.getElementsByClassName(
       "scrollable-container"
     )[0];
@@ -49,14 +51,14 @@ export const VoiceBot = () => {
     setScroll((prevScroll) => prevScroll + 1000);
     div.classList.add("bot-message-container");
     const p = document.createElement("p");
-    p.textContent = chatbotResponses[counter];
-    if (counter >= 3) {
-      const anchor = document.createElement("a");
-      anchor.classList.add("underline");
-      anchor.href = "/diseasereport";
-      anchor.textContent = "View Report";
-      p.appendChild(anchor);
-    }
+    p.textContent = chatbotResponses[question];
+    // if (counter >= 3) {
+    //   const anchor = document.createElement("a");
+    //   anchor.classList.add("underline");
+    //   anchor.href = "/diseasereport";
+    //   anchor.textContent = "View Report";
+    //   p.appendChild(anchor);
+    // }
 
     speakBot(p.textContent);
 
@@ -92,7 +94,7 @@ export const VoiceBot = () => {
     scrollableContainer.scrollTo(scroll, scroll + 1000);
     setScroll((prevScroll) => prevScroll + 1000);
     setTimeout(() => {
-      chatbotResponse();
+      chatbotResponse(question);
     }, 2000);
   };
 
@@ -152,24 +154,21 @@ export const VoiceBot = () => {
                 </div>
                 <AudioWave />
                 <div className="chat-container">
-                  {/* <div className="bot-message-container">
-                    <p>Great! what’s your name?</p>
-                  </div> */}
                   <div className="test-voicebot-message-container">
-                    <p>Great! what’s your name?</p>
+                    <p>Hi, I am Adax how can I help you?</p>
                   </div>
                 </div>
               </div>
               <div className="questions-responding-container">
                 <div className="chatbot-questions">
                   <div onClick={handleQuestion} className="questions voicebot">
+                    What is Adax?
+                  </div>
+                  <div onClick={handleQuestion} className="questions voicebot">
                     How to use Adax?
                   </div>
                   <div onClick={handleQuestion} className="questions voicebot">
-                    How can I give voice commands?
-                  </div>
-                  <div onClick={handleQuestion} className="questions voicebot">
-                    Give me a detail tour of Adax?
+                    How Adax dianosis diseases?
                   </div>
                 </div>
                 <div className="responding-tag voicebot-responding-tag">
