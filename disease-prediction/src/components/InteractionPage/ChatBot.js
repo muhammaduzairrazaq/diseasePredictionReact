@@ -1,5 +1,5 @@
 import "../../App.css";
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Progress from "./ChatBotMeter";
 import Row from "react-bootstrap/Row";
@@ -12,6 +12,7 @@ import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { Recored } from "./VoiceRecord";
+import Count from "../../context/Counter";
 
 export const ChatBot = () => {
   const [scroll, setScroll] = useState(0);
@@ -25,11 +26,21 @@ export const ChatBot = () => {
       "Adax is an intelligent disease diagnosis system that helps users identify diseases based on their symptoms. It utilizes a Neural Network model to provide accurate diagnoses.",
     "How to use Adax?":
       "To use Adax, simply interact with the chat bot or voice bot interface provided. You can enter your symptoms, and Adax will analyze them to provide a diagnosis. Alternatively, you can speak your symptoms for a hands-free experience.",
-    "How Adax dianosis diseases?":
-      "Adax diagnoses diseases by analyzing the symptoms provided by the user. It employs a sophisticated Neural Network model trained on medical data to accurately match symptoms with potential diseases, providing users with reliable diagnoses.",
+    "Can Adax provide treatment recommendations?":
+      "While Adax focuses on disease diagnosis, it does not provide treatment recommendations. It is recommended to consult with a healthcare professional for personalized treatment advice based on your diagnosis.",
   };
 
   const [counter, setCounter] = useState(1);
+  const {
+    chatBotMessageCount,
+    setChatBotMessageCount,
+    userResponseCount,
+    setUserResponseCount,
+    textMessageCount,
+    setTextMessageCount,
+    voiceMessageCount,
+    setVoiceMessageCount,
+  } = useContext(Count);
 
   const chatbotResponse = (question) => {
     const scrollableContainer = document.getElementsByClassName(
@@ -92,6 +103,9 @@ export const ChatBot = () => {
   };
 
   const handleQuestion = (event) => {
+    setChatBotMessageCount(chatBotMessageCount + 1);
+    setUserResponseCount(userResponseCount + 1);
+    setTextMessageCount(textMessageCount + 1);
     const textContent = event.target.textContent;
     handleClickQuestions(textContent);
   };
@@ -157,7 +171,7 @@ export const ChatBot = () => {
                     How to use Adax?
                   </div>
                   <div onClick={handleQuestion} className="questions">
-                    How Adax dianosis diseases?
+                    Can Adax provide treatment recommendations?
                   </div>
                 </div>
                 <div className="responding-tag">

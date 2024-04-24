@@ -1,9 +1,14 @@
 import { createContext } from "react";
 
-// export const chatBotMessageCount = createContext();
-// export const userResponseCount = createContext();
-// export const textMessageCount = createContext();
-// export const voiceMessageCount = createContext();
+const Count = createContext({
+    chatBotMessageCount: 0,
+    setChatBotMessageCount: () => {},
+    userResponseCount: 0,
+    setUserResponseCount: () => {},
+    textMessageCount: 0,
+    setTextMessageCount: () => {},
+    voiceMessageCount: 0,
+    setVoiceMessageCount: () => {},
+  });
 
-const Count = createContext();
 export default Count;

@@ -3,14 +3,17 @@ import React, { useContext } from "react";
 import "../../App.css";
 import Count from "../../context/Counter";
 
-// const [chatBotMessageCount, setchatBotMessage] = useState(1);
-// const [userResponseCount, setUserResponse] = useState(0);
-// const [textMessageCount, setTextMessage] = useState(0);
-// const [voiceMessageCount, setVoiceMessage] = useState(0);
-
 function Progress() {
-  const [chatBotMessageCount, setchatBotMessage] = useContext(Count);
-  const [userResponseCount, setUserResponse] = useContext(Count);
+  const {
+    chatBotMessageCount,
+    setChatBotMessageCount,
+    userResponseCount,
+    setUserResponseCount,
+    textMessageCount,
+    setTextMessageCount,
+    voiceMessageCount,
+    setVoiceMessageCount,
+  } = useContext(Count);
 
   return (
     <div>
@@ -30,22 +33,22 @@ function Progress() {
         now={userResponseCount}
         label={`${userResponseCount}%`}
       />
-      {/* <p className="progressbar-tags">Text Message</p>
+      <p className="progressbar-tags">Text Message</p>
       <ProgressBar
         striped
         variant="warning"
         animated
-        now={pp}
-        label={`${pp}%`}
+        now={textMessageCount}
+        label={`${textMessageCount}%`}
       />
       <p className="progressbar-tags">Voice Message</p>
       <ProgressBar
         striped
         variant="danger"
         animated
-        now={et}
-        label={`${et}%`}
-      /> */}
+        now={voiceMessageCount}
+        label={`${voiceMessageCount}%`}
+      />
     </div>
   );
 }

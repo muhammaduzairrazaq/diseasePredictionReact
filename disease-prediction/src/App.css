@@ -803,6 +803,19 @@ a {
   border-radius: 10px;
 }
 
+.bot-message-container-report {
+  margin-top: 20px;
+  align-self: flex-start;
+  max-width: 65%;
+  padding: 2px;
+}
+
+.bot-message-container-report p{
+  margin-bottom: 0;
+}
+
+
+
 .user-message-container {
   max-width: 50%;
   margin-top: 20px;
@@ -913,8 +926,14 @@ a {
   cursor: pointer;
 }
 
-.underline {
-  text-decoration: underline !important;
+.report-button {
+  background-color: #215CEC;
+  color: white;
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
 .chatbot-questions-hide {
@@ -1135,8 +1154,6 @@ a {
 }
 
 .disease-report-list li {
-  list-style: none;
-  display: inline-block;
   line-height: 1.8rem;
   margin-left: 8px;
 }
@@ -1363,6 +1380,10 @@ a {
 
 
 @media screen and (min-width: 768px) {
+
+  /* .col-md-6 {
+    width: 90% !important;
+  } */
 
   /* Introduction */
 

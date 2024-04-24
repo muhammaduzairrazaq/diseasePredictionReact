@@ -9,10 +9,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { faCaretRight, faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { DiseaseReport } from "./DiseaseReport";
 import "../../App.css";
 import Count from "../../context/Counter";
-
+import { useNavigate } from "react-router-dom"; 
 export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
   const { transcript, browserSupportsSpeechRecognition } =
     useSpeechRecognition();
@@ -21,23 +21,46 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
   const [textareaHeight, setTextareaHeight] = useState(40);
   const [scroll, setScroll] = useState(0);
   const { speak } = useSpeechSynthesis();
-  const [chatBotMessageCount, setchatBotMessage] = useContext(Count)
-  const [userResponseCount, setUserResponse] = useContext(Count);
+  const {
+    chatBotMessageCount,
+    setChatBotMessageCount,
+    userResponseCount,
+    setUserResponseCount,
+    textMessageCount,
+    setTextMessageCount,
+    voiceMessageCount,
+    setVoiceMessageCount,
+  } = useContext(Count);
 
   const speakBot = (sentence) => {
     speak({ text: sentence });
   };
 
   const fetchData = async (query) => {
+    const session_id = userResponseCount <= 0 ? "1" : "0";
     try {
       const response = await axios.post("http://127.0.0.1:8000/", {
         query: query,
+        session_id: session_id,
       });
-      // alert(response.data);
-      return response.data;
+
+      return response;
     } catch (error) {
       console.error("Error:", error);
     }
+  };
+  const navigate = useNavigate();
+  const handleReport = (response) => {
+    alert("you clicked...");
+    const reportData = {
+      symptoms: response.data.symptoms,
+      disease: response.data.disease,
+      description: response.data.description,
+      precaution: response.data.precaution,
+      negativesymptoms: response.data.negativesymptoms,
+    };
+    navigate("/diseasereport", { state: { reportData } }); // Pass data using state
+
   };
 
   const [counter, setCounter] = useState(1);
@@ -51,31 +74,55 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
       document.getElementsByClassName("chatbot-questions")[0];
     const respondingContainer =
       document.getElementsByClassName("responding-tag")[0];
-
-    setScroll((prevScroll) => prevScroll + 1000);
+    const user_query = textarea.value.trim().toLowerCase();
+    textarea.value = "";
     const p = document.createElement("p");
-    // calling fetchData and update p.textContent with the response data
     chatbotQuestions.classList.add("chatbot-questions-hide");
     respondingContainer.classList.add("responding-tag-show");
-    fetchData(textarea.value.trim())
+    const divbutton = document.createElement("div");
+    const button = document.createElement("button");
+    // calling fetchData and update p.textContent with the response data
+    fetchData(user_query)
       .then((response) => {
-        p.textContent = response;
+        p.textContent = response.data.response;
         const div = document.createElement("div");
         div.appendChild(p);
         div.classList.add("bot-message-container");
         chatContainer.appendChild(div);
         chatbotQuestions.classList.remove("chatbot-questions-hide");
         respondingContainer.classList.remove("responding-tag-show");
+        scrollableContainer.scrollTo(scroll, scroll + 1000);
+        setScroll((prevScroll) => prevScroll + 1000);
         if (bot === "voicebot") {
-          speakBot(response);
+          speakBot(response.data.response);
         }
-        textarea.value = "";
+
+        const hasReport =
+          "symptoms" in response.data &&
+          "disease" in response.data &&
+          "description" in response.data &&
+          "precaution" in response.data &&
+          "negativesymptoms" in response.data;
+        if (hasReport) {
+          setTimeout(() => {
+            button.classList.add("report-button");
+            button.textContent = "View Report";
+            divbutton.appendChild(button);
+            button.onclick = handleReport(response);
+            divbutton.classList.add("bot-message-container-report");
+            chatContainer.appendChild(div);
+            scrollableContainer.scrollTo(scroll, scroll + 1000);
+            setScroll((prevScroll) => prevScroll + 1000);
+            if (bot === "voicebot") {
+              speakBot(response.data.response);
+            }
+          }, 2000);
+        }
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
-        // Handle errors appropriately, e.g., display an error message
       });
-
+    
     scrollableContainer.scrollTo(scroll, scroll + 1000);
     setScroll((prevScroll) => prevScroll + 1000);
     setCounter((preCount) => preCount + 1);
@@ -102,8 +149,9 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
     }
 
     if (textarea.value !== "") {
-      setchatBotMessage(chatBotMessageCount+1);
-      setUserResponse(userResponseCount+1);
+      setChatBotMessageCount(chatBotMessageCount + 1);
+      setUserResponseCount(userResponseCount + 1);
+      setTextMessageCount(textMessageCount + 1);
       const div = document.createElement("div");
       if (bot === "chatbot") div.classList.add("user-message-container");
       else div.classList.add("voicebot-user-message-container");
@@ -121,6 +169,7 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
     if (!browserSupportsSpeechRecognition) {
       return null;
     }
+    setVoiceMessageCount(voiceMessageCount + 1);
     const inputContainer =
       document.getElementsByClassName("input-container")[0];
     const textarea = document.getElementsByClassName("text-area")[0];

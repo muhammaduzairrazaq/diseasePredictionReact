@@ -9,18 +9,30 @@ import { DiseaseReport } from "./components/InteractionPage/DiseaseReport";
 import { HealthProfile } from "./components/InteractionPage/HealthProfile";
 import { DiseaseProfile } from "./components/InteractionPage/DiseaseProfile";
 import Count from "./context/Counter";
-
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Speech } from "./components/VoiceHandleing/Speech";
 import { useState } from "react";
 
 function App() {
-  const [chatBotMessageCount, setchatBotMessage] = useState(1);
-  const [userResponseCount, setUserResponse] = useState(0);
+  const [chatBotMessageCount, setChatBotMessageCount] = useState(1);
+  const [userResponseCount, setUserResponseCount] = useState(0);
+  const [textMessageCount, setTextMessageCount] = useState(0);
+  const [voiceMessageCount, setVoiceMessageCount] = useState(0);
+
+
+  const value = {
+    chatBotMessageCount,
+    setChatBotMessageCount,
+    userResponseCount,
+    setUserResponseCount,
+    textMessageCount,
+    setTextMessageCount,
+    voiceMessageCount,
+    setVoiceMessageCount,
+  };
 
   return (
     <div className="App">
-      <Count.Provider value={[chatBotMessageCount, setchatBotMessage, userResponseCount, setUserResponse]}>
+      <Count.Provider value={value}>
         <Router>
           <Routes>
             <Route path="/" element={<HomePageComplete />} />
