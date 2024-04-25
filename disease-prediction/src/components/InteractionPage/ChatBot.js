@@ -23,7 +23,7 @@ export const ChatBot = () => {
 
   const chatbotResponses = {
     "What is Adax?":
-      "Adax is an intelligent disease diagnosis system that helps users identify diseases based on their symptoms. It utilizes a Neural Network model to provide accurate diagnoses.",
+      "Adax is an intelligent disease diagnosis system that helps users identify diseases based on their symptoms. It utilizes a Neural Network model to provide accurate diagnosis.",
     "How to use Adax?":
       "To use Adax, simply interact with the chat bot or voice bot interface provided. You can enter your symptoms, and Adax will analyze them to provide a diagnosis. Alternatively, you can speak your symptoms for a hands-free experience.",
     "Can Adax provide treatment recommendations?":

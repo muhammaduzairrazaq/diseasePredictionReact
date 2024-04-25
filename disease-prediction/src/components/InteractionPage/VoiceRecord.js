@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DiseaseReport } from "./DiseaseReport";
 import "../../App.css";
 import Count from "../../context/Counter";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
   const { transcript, browserSupportsSpeechRecognition } =
     useSpeechRecognition();
@@ -51,16 +51,14 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
   };
   const navigate = useNavigate();
   const handleReport = (response) => {
-    alert("you clicked...");
-    const reportData = {
-      symptoms: response.data.symptoms,
-      disease: response.data.disease,
-      description: response.data.description,
-      precaution: response.data.precaution,
-      negativesymptoms: response.data.negativesymptoms,
-    };
-    navigate("/diseasereport", { state: { reportData } }); // Pass data using state
-
+      const reportData = {
+        symptoms: response.data.symptoms,
+        disease: response.data.disease,
+        description: response.data.description,
+        precaution: response.data.precaution,
+        negativesymptoms: response.data.negativesymptoms,
+      };
+      navigate("/diseasereport", { state: { reportData } }); // pass data using state
   };
 
   const [counter, setCounter] = useState(1);
@@ -79,8 +77,6 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
     const p = document.createElement("p");
     chatbotQuestions.classList.add("chatbot-questions-hide");
     respondingContainer.classList.add("responding-tag-show");
-    const divbutton = document.createElement("div");
-    const button = document.createElement("button");
     // calling fetchData and update p.textContent with the response data
     fetchData(user_query)
       .then((response) => {
@@ -105,11 +101,16 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
           "negativesymptoms" in response.data;
         if (hasReport) {
           setTimeout(() => {
-            button.classList.add("report-button");
-            button.textContent = "View Report";
-            divbutton.appendChild(button);
-            button.onclick = handleReport(response);
-            divbutton.classList.add("bot-message-container-report");
+            const div = document.createElement("div");
+            const anchor = document.createElement("a");
+            const p = document.createElement("p");
+            p.textContent = "Your report is ready ";
+            anchor.textContent = "View Report";
+            anchor.onclick = () => {handleReport(response)};
+            anchor.classList.add("report-link");
+            p.appendChild(anchor);
+            div.appendChild(p);
+            div.classList.add("bot-message-container-report");
             chatContainer.appendChild(div);
             scrollableContainer.scrollTo(scroll, scroll + 1000);
             setScroll((prevScroll) => prevScroll + 1000);
@@ -122,7 +123,7 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-    
+
     scrollableContainer.scrollTo(scroll, scroll + 1000);
     setScroll((prevScroll) => prevScroll + 1000);
     setCounter((preCount) => preCount + 1);

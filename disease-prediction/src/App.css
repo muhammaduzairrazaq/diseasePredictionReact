@@ -807,7 +807,11 @@ a {
   margin-top: 20px;
   align-self: flex-start;
   max-width: 65%;
-  padding: 2px;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid white;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
 }
 
 .bot-message-container-report p{
@@ -923,16 +927,6 @@ a {
 
 .questions,
 .voicebot {
-  cursor: pointer;
-}
-
-.report-button {
-  background-color: #215CEC;
-  color: white;
-  padding: 10px;
-  font-size: 15px;
-  border: none;
-  border-radius: 50px;
   cursor: pointer;
 }
 
@@ -1100,6 +1094,12 @@ a {
 }
 
 /* DiseaseReport.js */
+
+.report-link {
+  color: #215CEC;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
 
 .main-disease-report-container {
   display: flex;
