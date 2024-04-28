@@ -682,6 +682,14 @@ a {
 
 .create-account {
   margin-top: 15px;
+  text-decoration: underline;
+}
+
+.sign-out {
+  margin-top: 10px;
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* Starting Interaction Page */

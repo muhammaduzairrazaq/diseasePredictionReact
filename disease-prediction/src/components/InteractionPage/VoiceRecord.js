@@ -9,7 +9,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { faCaretRight, faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { DiseaseReport } from "./DiseaseReport";
 import "../../App.css";
 import Count from "../../context/Counter";
 import { useNavigate } from "react-router-dom";
@@ -37,11 +36,20 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
   };
 
   const fetchData = async (query) => {
+    let userEmail = localStorage.getItem("email");
+    let userStatus = localStorage.getItem("status");
+    if (!userEmail && !userStatus) {
+      userEmail = "false";
+      userStatus = "false";
+    }
+    
     const session_id = userResponseCount <= 0 ? "1" : "0";
     try {
       const response = await axios.post("http://127.0.0.1:8000/", {
         query: query,
         session_id: session_id,
+        email: userEmail,
+        status: userStatus
       });
 
       return response;

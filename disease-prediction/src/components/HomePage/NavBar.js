@@ -2,10 +2,21 @@ import React, { useRef, useEffect } from "react";
 import logo from "../../assets/logoo.png";
 import "../../App.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const NavBar = () => {
   const primaryNavRef = useRef(null);
   const toggleButtonRef = useRef(null);
+  const navigate = useNavigate();
+  const handleProfilesClick = () => {
+    const userEmail = localStorage.getItem("email");
+    const userStatus = localStorage.getItem("status");
+    if (userEmail && userStatus) {
+      navigate("/diseaseprofiles");
+    } else {
+      navigate("/signin");
+    }
+  };
 
   const handleToggleClick = () => {
     const isExpanded = primaryNavRef.current.getAttribute("aria-expanded");
@@ -59,8 +70,8 @@ export const NavBar = () => {
                     Sign In
                   </Link>
                 </li>
-                <li className="list-item">
-                <Link to="/diseaseprofiles" className="nav__link">
+                <li className="list-item" onClick={handleProfilesClick}>
+                  <Link to="/diseaseprofiles" className="nav__link">
                     Profiles
                   </Link>
                 </li>
