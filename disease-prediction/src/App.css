@@ -1383,6 +1383,12 @@ a {
   display: none;
 }
 
+.empty-report {
+  text-align: center;
+  color: rgb(167, 167, 167);
+  margin: 50px;
+}
+
 /*  Media queries */
 
 

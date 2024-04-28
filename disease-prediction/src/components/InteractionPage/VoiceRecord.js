@@ -48,8 +48,7 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
       const response = await axios.post("http://127.0.0.1:8000/", {
         query: query,
         session_id: session_id,
-        email: userEmail,
-        status: userStatus
+        email: userEmail
       });
 
       return response;
@@ -178,11 +177,11 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
     if (!browserSupportsSpeechRecognition) {
       return null;
     }
-    setVoiceMessageCount(voiceMessageCount + 1);
     const inputContainer =
       document.getElementsByClassName("input-container")[0];
     const textarea = document.getElementsByClassName("text-area")[0];
     if (isListening === false) {
+      setVoiceMessageCount(voiceMessageCount + 1);
       if (textarea.value !== "") {
         textarea.value = "";
       }
