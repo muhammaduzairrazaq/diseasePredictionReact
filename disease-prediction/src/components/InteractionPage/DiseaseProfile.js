@@ -1,6 +1,6 @@
 import "../../App.css";
 import Container from "react-bootstrap/Container";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
@@ -34,6 +34,25 @@ export const DiseaseProfile = () => {
     }
   };
 
+  const deleteReport = async (report_id) => {
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/adax/deletereport/",
+        {
+          report_id: report_id,
+        }
+      );
+
+      return response;
+    } catch (error) {
+      if (error.message.includes("400")) {
+        alert("Report ID is required");
+      } else {
+        alert(error.message);
+      }
+    }
+  };
+
   // Loading Disease Profiles
   const loadDiseaseProfiles = () => {
     const email = localStorage.getItem("email");
@@ -46,11 +65,34 @@ export const DiseaseProfile = () => {
       });
   };
 
-  loadDiseaseProfiles();
+  useEffect(() => {
+    loadDiseaseProfiles();
+  });
+  const handleReportClick = (
+    disease,
+    positive_symptoms,
+    negative_symptoms,
+    precaution,
+    description
+  ) => {
+    const reportData = {
+      symptoms: positive_symptoms,
+      disease: disease,
+      description: description,
+      precaution: precaution,
+      negativesymptoms: negative_symptoms,
+    };
+    navigate("/diseasereport", { state: { reportData } });
+  };
 
-  const handleReportClick = () => {
-    alert("ok so you clicked me");
-    navigate("/diseasereport");
+  const handleDeleteClick = (report_id) => {
+    deleteReport(report_id)
+      .then((response) => {
+        alert(response.data.message);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   };
 
   return (
@@ -69,16 +111,31 @@ export const DiseaseProfile = () => {
             </Link>
             <div className="disease-profiles-list">
               {profiles.length === 0 && (
-                <h2 className="empty-report">Nothing to show yet!</h2>
+                <h2 className="empty-report">"Nothing to show yet!"</h2>
               )}
               {profiles.map((profile, index) => (
                 <div className="disease-profile" key={index}>
-                  <p>Reported Disease {profile.disease_name}</p>
-                  <p className="report-date">{profile.date}</p>
+                  <p
+                    className="report-tag"
+                    onClick={() =>
+                      handleReportClick(
+                        profile.disease_name,
+                        profile.positive_symptoms,
+                        profile.negative_symptoms,
+                        profile.precautions,
+                        profile.description
+                      )
+                    }
+                  >
+                    Reported Disease {profile.disease_name}
+                  </p>
+                  <p className="report-date">{profile.date.substring(0, 10)}</p>
                   <span className="report-delete">
                     <FontAwesomeIcon
                       icon={faTrash}
+                      className="report-delete-icon"
                       style={{ color: "#215cec" }}
+                      onClick={() => handleDeleteClick(profile.report_id)}
                     />
                   </span>
                 </div>

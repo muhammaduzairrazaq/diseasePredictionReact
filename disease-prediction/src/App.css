@@ -640,6 +640,19 @@ a {
   gap: 10px;
 }
 
+.sign-message {
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
 .signin-container button {
   border: none !important;
   border: 1px solid #215CEC;
@@ -654,7 +667,7 @@ a {
   padding: 20px;
   max-width: 400px;
   min-width: 30%;
-  height: 520px;
+  height: 570px;
   /* min-height: 500px; */
   /* font-family: 'Poppins', sans-serif; */
   font-weight: 300;
@@ -1108,6 +1121,36 @@ a {
   text-decoration: underline !important;
   cursor: pointer;
 }
+
+.report-tag {
+  /* text-decoration: underline; */
+  /* color: #215CEC; */
+  cursor: pointer;
+}
+
+.report-tag:hover {
+  color: #215CEC !important;
+  text-decoration: underline;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake-element {
+  animation: shake 0.5s ease infinite;
+}
+
+.report-delete-icon:hover {
+  cursor: pointer;
+  color: red !important;
+  animation: shake 0.5s ease;
+}
+
 
 .main-disease-report-container {
   display: flex;

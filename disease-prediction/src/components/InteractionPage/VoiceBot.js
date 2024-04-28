@@ -59,7 +59,6 @@ export const VoiceBot = () => {
       document.getElementsByClassName("responding-tag")[0];
 
     const div = document.createElement("div");
-    setScroll((prevScroll) => prevScroll + 1000);
     div.classList.add("bot-message-container");
     const p = document.createElement("p");
     p.textContent = chatbotResponses[question];
@@ -76,12 +75,11 @@ export const VoiceBot = () => {
     div.appendChild(p);
     chatContainer.appendChild(div);
     chatContainer.appendChild(div);
-
-    scrollableContainer.scrollTo(scroll, scroll + 1000);
-    setScroll((prevScroll) => prevScroll + 1000);
     setCounter((preCount) => preCount + 1);
     chatbotQuestions.classList.remove("chatbot-questions-hide");
     respondingContainer.classList.remove("responding-tag-show");
+    div.scrollIntoView({ behavior: "smooth", block: "end" });
+
   };
 
   const handleClickQuestions = (question) => {
@@ -102,8 +100,7 @@ export const VoiceBot = () => {
     p.textContent = question;
     div.appendChild(p);
     chatContainer.appendChild(div);
-    scrollableContainer.scrollTo(scroll, scroll + 1000);
-    setScroll((prevScroll) => prevScroll + 1000);
+    div.scrollIntoView({ behavior: "smooth", block: "end" });
     setTimeout(() => {
       chatbotResponse(question);
     }, 2000);

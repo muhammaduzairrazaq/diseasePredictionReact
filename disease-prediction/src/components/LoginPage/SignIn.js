@@ -12,7 +12,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export const SignIn = () => {
+  let flag = 1;
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const navigate = useNavigate();
@@ -24,15 +26,16 @@ export const SignIn = () => {
         email: email,
         password: password,
       });
-
+      setMessage("Signed in successfully!");
+      flag = 0;
       return response;
     } catch (error) {
       if (error.message.includes("401")) {
-        alert("Invalid Password");
+        setMessage("Invalid email or password!");
       } else if (error.message.includes("404")) {
-        alert("User does not exist");
+        setMessage("Account does not exits!");
       } else {
-        alert(error.message);
+        setMessage("Network error please try later!");
       }
     }
   };
@@ -40,10 +43,9 @@ export const SignIn = () => {
   const handleSignOut = () => {
     // Check if user is signed in
     if (userEmail && userStatus) {
-      alert('Signout successfully')
       localStorage.removeItem("email");
       localStorage.removeItem("status");
-      navigate('/');
+      navigate("/");
     }
   };
 
@@ -73,7 +75,7 @@ export const SignIn = () => {
     e.preventDefault();
     sendData(email, password)
       .then((response) => {
-        alert(response.data.message);
+        console.log(response.data.message);
         // storing emial and status in local storage
         localStorage.setItem("email", email);
         localStorage.setItem("status", "true");
@@ -83,6 +85,38 @@ export const SignIn = () => {
         console.error("Error fetching data:", error);
       });
   };
+  const deleteAccount = async (email) => {
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/adax/deleteaccount/",
+        {
+          email: email,
+        }
+      );
+
+      return response;
+    } catch (error) {
+      if (error.message.includes("400")) {
+        alert("Email is required!");
+      } else {
+        alert(error.message);
+      }
+    }
+  };
+
+  const handleDeleteAccount = () => {
+    const email = localStorage.getItem("email");
+    deleteAccount(email)
+    .then((response) => {
+      console.log(response.data.message);
+      localStorage.removeItem("email");
+      localStorage.removeItem("status");
+      navigate('/');
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+  }
 
   return (
     <Container>
@@ -128,13 +162,21 @@ export const SignIn = () => {
               </Button>
               <br />
               <Link to="/signup">
-                <p className="create-account">Create a account?</p>
+                <p className="create-account">Create an account?</p>
               </Link>
               {userEmail && userStatus && (
+                <>
                 <p className="sign-out" onClick={handleSignOut}>
                   Sign out
                 </p>
+                <p className="sign-out" onClick={handleDeleteAccount}>
+                Delete Account
+              </p>
+              </>
               )}
+              <p className={`sign-message ${flag === 1 ? "red" : "green"}`}>
+                {message}
+              </p>
             </Form>
           </div>
         </Col>

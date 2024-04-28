@@ -12,6 +12,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
+  let flag = 1;
+  const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -24,13 +26,14 @@ export const SignUp = () => {
         email: email,
         password: password,
       });
-
+      setMessage("Signed up successfully!");
+      flag = 0;
       return response;
     } catch (error) {
       if (error.message.includes("400")) {
-        alert("Account already exists");
+        setMessage("Account already exists!");
       } else {
-        alert(error.message);
+        setMessage("Network error please try later!");
       }
     }
   };
@@ -65,8 +68,8 @@ export const SignUp = () => {
     }
     sendData(email, password)
       .then((response) => {
-        alert(response.data.message);
-        navigate('/signin');
+        console.log(response.data.message);
+        navigate("/signin");
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -134,8 +137,11 @@ export const SignUp = () => {
               </Button>
               <br />
               <Link to="/signin">
-                <p className="create-account">Already have a account?</p>
+                <p className="create-account">Already have an account?</p>
               </Link>
+              <p className={`sign-message ${flag === 1 ? "red" : "green"}`}>
+                {message}
+              </p>
             </Form>
           </div>
         </Col>

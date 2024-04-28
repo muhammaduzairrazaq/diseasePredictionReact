@@ -42,13 +42,13 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
       userEmail = "false";
       userStatus = "false";
     }
-    
+
     const session_id = userResponseCount <= 0 ? "1" : "0";
     try {
       const response = await axios.post("http://127.0.0.1:8000/", {
         query: query,
         session_id: session_id,
-        email: userEmail
+        email: userEmail,
       });
 
       return response;
@@ -58,14 +58,14 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
   };
   const navigate = useNavigate();
   const handleReport = (response) => {
-      const reportData = {
-        symptoms: response.data.symptoms,
-        disease: response.data.disease,
-        description: response.data.description,
-        precaution: response.data.precaution,
-        negativesymptoms: response.data.negativesymptoms,
-      };
-      navigate("/diseasereport", { state: { reportData } }); // pass data using state
+    const reportData = {
+      symptoms: response.data.symptoms,
+      disease: response.data.disease,
+      description: response.data.description,
+      precaution: response.data.precaution,
+      negativesymptoms: response.data.negativesymptoms,
+    };
+    navigate("/diseasereport", { state: { reportData } }); // pass data using state
   };
 
   const [counter, setCounter] = useState(1);
@@ -94,8 +94,8 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
         chatContainer.appendChild(div);
         chatbotQuestions.classList.remove("chatbot-questions-hide");
         respondingContainer.classList.remove("responding-tag-show");
-        scrollableContainer.scrollTo(scroll, scroll + 1000);
-        setScroll((prevScroll) => prevScroll + 1000);
+        div.scrollIntoView({ behavior: "smooth", block: "end" });
+
         if (bot === "voicebot") {
           speakBot(response.data.response);
         }
@@ -113,7 +113,9 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
             const p = document.createElement("p");
             p.textContent = "Your report is ready ";
             anchor.textContent = "View Report";
-            anchor.onclick = () => {handleReport(response)};
+            anchor.onclick = () => {
+              handleReport(response);
+            };
             anchor.classList.add("report-link");
             p.appendChild(anchor);
             div.appendChild(p);
@@ -167,8 +169,7 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
       p.textContent = textarea.value;
       div.appendChild(p);
       chatContainer.appendChild(div);
-      scrollableContainer.scrollTo(scroll, scroll + 1000);
-      setScroll((prevScroll) => prevScroll + 1000);
+      div.scrollIntoView({ behavior: "smooth", block: "end" });
       chatbotResponse();
     }
   };
