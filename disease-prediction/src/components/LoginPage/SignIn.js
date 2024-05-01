@@ -20,6 +20,7 @@ export const SignIn = () => {
   const navigate = useNavigate();
   const userEmail = localStorage.getItem("email");
   const userStatus = localStorage.getItem("status");
+  
   const sendData = async (email, password) => {
     try {
       const response = await axios.post("http://127.0.0.1:8000/adax/signin/", {
@@ -85,6 +86,7 @@ export const SignIn = () => {
         console.error("Error fetching data:", error);
       });
   };
+
   const deleteAccount = async (email) => {
     try {
       const response = await axios.post(
