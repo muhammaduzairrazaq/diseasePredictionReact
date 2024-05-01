@@ -18,7 +18,7 @@ export const DiseaseProfile = () => {
   const fetchProfiles = async (email) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/adax/diseaseprofile/",
+        "https://pipefish-hip-aphid.ngrok-free.app/adax/diseaseprofile/",
         {
           email: email,
         }
@@ -37,7 +37,7 @@ export const DiseaseProfile = () => {
   const deleteReport = async (report_id) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/adax/deletereport/",
+        "https://pipefish-hip-aphid.ngrok-free.app/adax/deletereport/",
         {
           report_id: report_id,
         }

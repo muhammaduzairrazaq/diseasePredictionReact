@@ -22,10 +22,13 @@ export const SignUp = () => {
 
   const sendData = async (email, password) => {
     try {
-      const response = await axios.post("http://127.0.0.1:8000/adax/signup/", {
-        email: email,
-        password: password,
-      });
+      const response = await axios.post(
+        "https://pipefish-hip-aphid.ngrok-free.app/adax/signup/",
+        {
+          email: email,
+          password: password,
+        }
+      );
       setMessage("Signed up successfully!");
       flag = 0;
       return response;

@@ -23,7 +23,7 @@ export const SignIn = () => {
   
   const sendData = async (email, password) => {
     try {
-      const response = await axios.post("http://127.0.0.1:8000/adax/signin/", {
+      const response = await axios.post("https://pipefish-hip-aphid.ngrok-free.app/adax/signin/", {
         email: email,
         password: password,
       });
@@ -90,7 +90,7 @@ export const SignIn = () => {
   const deleteAccount = async (email) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/adax/deleteaccount/",
+        "https://pipefish-hip-aphid.ngrok-free.app/adax/deleteaccount/",
         {
           email: email,
         }

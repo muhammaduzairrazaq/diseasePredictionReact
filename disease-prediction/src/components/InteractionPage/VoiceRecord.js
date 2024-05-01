@@ -45,11 +45,14 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
 
     const session_id = userResponseCount <= 0 ? "1" : "0";
     try {
-      const response = await axios.post("http://127.0.0.1:8000/", {
-        query: query,
-        session_id: session_id,
-        email: userEmail,
-      });
+      const response = await axios.post(
+        "https://pipefish-hip-aphid.ngrok-free.app",
+        {
+          query: query,
+          session_id: session_id,
+          email: userEmail,
+        }
+      );
 
       return response;
     } catch (error) {
