@@ -1,5 +1,7 @@
 import "../../App.css";
-import featured1 from "../../assets/f1.png";
+import Slider1 from "../../assets/slider1.jpeg";
+import Slider2 from "../../assets/slider2.jpeg";
+import Slider3 from "../../assets/slider3.jpeg";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -21,44 +23,44 @@ export const Featured = () => {
               <Carousel.Item>
                 <img
                   className="image-featured d-block w-100 rounded-5"
-                  src={featured1}
+                  src={Slider1}
                   style={imageStyle}
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <h3>First slide label</h3>
+                  {/* <h3>First slide label</h3>
                   <p>
                     Nulla vitae elit libero, a pharetra augue mollis interdum.
-                  </p>
+                  </p> */}
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="image-featured d-block w-100 rounded-5"
-                  src={featured1}
+                  src={Slider2}
                   style={imageStyle}
                   alt="Second slide"
                 />
                 <Carousel.Caption>
-                  <h3>Second slide label</h3>
+                  {/* <h3>Second slide label</h3>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
+                  </p> */}
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="image-featured d-block w-100 rounded-5"
-                  src={featured1}
+                  src={Slider3}
                   style={imageStyle}
                   alt="Second slide"
                 />
                 <Carousel.Caption>
-                  <h3>Third slide label</h3>
+                  {/* <h3>Third slide label</h3>
                   <p>
                     Praesent commodo cursus magna, vel scelerisque nisl
                     consectetur.
-                  </p>
+                  </p> */}
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
