@@ -68,6 +68,7 @@ export const DiseaseProfile = () => {
   useEffect(() => {
     loadDiseaseProfiles();
   });
+  
   const handleReportClick = (
     disease,
     positive_symptoms,
