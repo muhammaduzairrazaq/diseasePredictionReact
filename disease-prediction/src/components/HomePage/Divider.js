@@ -10,8 +10,8 @@ export const Divider = () => {
       <Col xs={12}>
     <div className="section-divider">
       <div>
-        <p>Get started with Adax today</p>
-        <button className="action-buttons">Download Adax</button>
+        <p>Get started with Dr. Clue today</p>
+        <button className="action-buttons">Download Dr. Clue</button>
         <button className="action-buttons">Become Partner</button>
       </div>
     </div>

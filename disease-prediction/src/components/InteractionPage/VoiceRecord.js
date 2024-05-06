@@ -18,7 +18,6 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
 
   const [isListening, setIsListening] = useState(false);
   const [textareaHeight, setTextareaHeight] = useState(40);
-  const [scroll, setScroll] = useState(0);
   const { speak } = useSpeechSynthesis();
   const {
     chatBotMessageCount,
@@ -71,12 +70,8 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
     navigate("/diseasereport", { state: { reportData } }); // pass data using state
   };
 
-  const [counter, setCounter] = useState(1);
   const chatbotResponse = () => {
     const textarea = document.getElementsByClassName("text-area")[0];
-    const scrollableContainer = document.getElementsByClassName(
-      "scrollable-container"
-    )[0];
     const chatContainer = document.getElementsByClassName("chat-container")[0];
     const chatbotQuestions =
       document.getElementsByClassName("chatbot-questions")[0];
@@ -124,8 +119,6 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
             div.appendChild(p);
             div.classList.add("bot-message-container-report");
             chatContainer.appendChild(div);
-            scrollableContainer.scrollTo(scroll, scroll + 1000);
-            setScroll((prevScroll) => prevScroll + 1000);
             if (bot === "voicebot") {
               speakBot(response.data.response);
             }
@@ -135,10 +128,6 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-
-    scrollableContainer.scrollTo(scroll, scroll + 1000);
-    setScroll((prevScroll) => prevScroll + 1000);
-    setCounter((preCount) => preCount + 1);
   };
 
   const handleForward = () => {
@@ -146,9 +135,6 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
     const inputContainer =
       document.getElementsByClassName("input-container")[0];
     const textarea = document.getElementsByClassName("text-area")[0];
-    const scrollableContainer = document.getElementsByClassName(
-      "scrollable-container"
-    )[0];
 
     setTextareaHeight(40);
 

@@ -32,6 +32,16 @@ export const DiseaseReport = () => {
                   <div className="info-container">
                     <Row>
                       <Col xs={12} md={11}>
+                        <div className="precautions-container">
+                          <h3>Disease diagnosis</h3>
+                          <ul className="disease-report-list">
+                            <li>
+                              You are diagnosed with{" "}
+                              {location.state.reportData.disease}
+                            </li>
+                            <li>{location.state.reportData.description}</li>
+                          </ul>
+                        </div>
                         <div className="symptoms-container">
                           <h3>Pertinent positives</h3>
                           <ul className="disease-report-list">
@@ -55,16 +65,6 @@ export const DiseaseReport = () => {
                             ) : (
                               <li key="no-negatives">None Reported</li>
                             )}
-                          </ul>
-                        </div>
-                        <div className="precautions-container">
-                          <h3>Disease diagnosis</h3>
-                          <ul className="disease-report-list">
-                            <li>
-                              You are diagnosed with{" "}
-                              {location.state.reportData.disease}
-                            </li>
-                            <li>{location.state.reportData.description}</li>
                           </ul>
                         </div>
                         <div className="precautions-container">

@@ -1,7 +1,7 @@
 import "../../App.css";
 import Slider1 from "../../assets/slider1.jpeg";
-import Slider2 from "../../assets/slider2.jpeg";
-import Slider3 from "../../assets/slider3.jpeg";
+import Slider2 from "../../assets/slidernm.jpeg";
+import Slider3 from "../../assets/slidernt.jpeg";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -28,10 +28,9 @@ export const Featured = () => {
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  {/* <h3>First slide label</h3>
-                  <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
-                  </p> */}
+                  <h3 className="featured-images-tags">
+                    Want to know about seasonal allergies
+                  </h3>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
@@ -42,10 +41,7 @@ export const Featured = () => {
                   alt="Second slide"
                 />
                 <Carousel.Caption>
-                  {/* <h3>Second slide label</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p> */}
+                  <h3 className="featured-images-tags">Track your symptoms</h3>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
@@ -56,11 +52,7 @@ export const Featured = () => {
                   alt="Second slide"
                 />
                 <Carousel.Caption>
-                  {/* <h3>Third slide label</h3>
-                  <p>
-                    Praesent commodo cursus magna, vel scelerisque nisl
-                    consectetur.
-                  </p> */}
+                  <h3 className="featured-images-tags">Want to know about rare diseases</h3>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>

@@ -89,10 +89,10 @@ export const DiseaseProfile = () => {
   const handleDeleteClick = (report_id) => {
     deleteReport(report_id)
       .then((response) => {
-        alert(response.data.message);
+        console.log(response.data.message);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        console.log("Error fetching data:", error);
       });
   };
 
@@ -112,7 +112,7 @@ export const DiseaseProfile = () => {
             </Link>
             <div className="disease-profiles-list">
               {profiles.length === 0 && (
-                <h2 className="empty-report">"Nothing to show yet!"</h2>
+                <h2 className="empty-report">Nothing to show yet!</h2>
               )}
               {profiles.map((profile, index) => (
                 <div className="disease-profile" key={index}>

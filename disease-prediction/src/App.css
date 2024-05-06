@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Poppins:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Nanum+Myeongjo&family=Poppins:wght@300;500&display=swap');
 
 body {
   display: flex;
   flex-flow: column;
   min-block-size: 100vh;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to top, rgb(239, 242, 247) 0%, 7.60286%, rgb(237, 240, 249) 15.2057%, 20.7513%, rgb(235, 239, 248) 26.297%, 27.6386%, rgb(235, 239, 248) 28.9803%, 38.2826%, rgb(231, 237, 249) 47.585%, 48.1216%, rgb(230, 236, 250) 48.6583%, 53.1306%, rgb(228, 236, 249) 57.6029%, 61.5385%, rgb(227, 234, 250) 65.4741%, 68.7835%, rgb(222, 234, 250) 72.093%, 75.7603%, rgb(219, 230, 248) 79.4275%, 82.8265%, rgb(216, 229, 248) 86.2254%, 87.8354%, rgb(213, 228, 249) 89.4454%, 91.8605%, rgb(210, 226, 249) 94.2755%, 95.4383%, rgb(209, 225, 248) 96.6011%, 98.3005%, rgb(208, 224, 247) 100%);
+  font-family: "Nanum Myeongjo", sans-serif !important;
+  background: linear-gradient(90deg, rgb(239, 242, 247) 0%, 7.60286%, rgb(237, 240, 249) 15.2057%, 20.7513%, rgb(235, 239, 248) 26.297%, 27.6386%, rgb(235, 239, 248) 28.9803%, 38.2826%, rgb(231, 237, 249) 47.585%, 48.1216%, rgb(230, 236, 250) 48.6583%, 53.1306%, rgb(228, 236, 249) 57.6029%, 61.5385%, rgb(227, 234, 250) 65.4741%, 68.7835%, rgb(222, 234, 250) 72.093%, 75.7603%, rgb(219, 230, 248) 79.4275%, 82.8265%, rgb(216, 229, 248) 86.2254%, 87.8354%, rgb(213, 228, 249) 89.4454%, 91.8605%, rgb(210, 226, 249) 94.2755%, 95.4383%, rgb(209, 225, 248) 96.6011%, 98.3005%, rgb(208, 224, 247) 100%);
 }
 
 /* NavBar.js */
@@ -500,6 +501,10 @@ a {
   padding: 10px;
 }
 
+.featured-images-tags {
+  color: rgb(51, 51, 51);
+}
+
 .section-featured h2 {
   font-weight: 700;
   color: var(--text-primary);
@@ -617,20 +622,6 @@ a {
   margin-left: 70px;
 }
 
-/* Home Page completed */
-
-/* Starting Sign pages */
-/* 
-.sign-btn {
-  background-color: var(--text-primary) !important;
-  border: 1px solid var(--text-primary) !important;
-  border-radius: 10px !important;
-}
-
-.sign-text {
-  color: var(--text-primary) !important;
-} */
-
 .signin-container {
   width: 100%;
   display: flex;
@@ -638,6 +629,10 @@ a {
   height: 80vh;
   margin-top: 70px;
   gap: 10px;
+}
+
+.sign-in-heading {
+  margin-bottom: 50px;
 }
 
 .sign-message {
@@ -659,6 +654,9 @@ a {
   background-color: #215CEC !important;
 }
 
+.field-gap {
+  margin-top: 2rem !important;
+}
 
 .signin-form {
   box-shadow: var(--shadow);
@@ -667,14 +665,11 @@ a {
   padding: 20px;
   max-width: 400px;
   min-width: 30%;
-  height: 570px;
-  /* min-height: 500px; */
-  /* font-family: 'Poppins', sans-serif; */
+  height: 520px;
   font-weight: 300;
 }
 
 .form-control {
-  /* font-family: 'Poppins' !important; */
   font-weight: lighter !important;
 }
 
@@ -835,7 +830,7 @@ a {
   border-radius: 10px;
 }
 
-.bot-message-container-report p{
+.bot-message-container-report p {
   margin-bottom: 0;
 }
 
@@ -1134,11 +1129,25 @@ a {
 }
 
 @keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .shake-element {

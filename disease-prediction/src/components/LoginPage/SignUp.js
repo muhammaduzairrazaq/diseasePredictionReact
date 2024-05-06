@@ -4,7 +4,6 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import logo from "../../assets/logoo.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons/faArrowLeft";
@@ -93,8 +92,7 @@ export const SignUp = () => {
               </span>
             </Link>
             <Form className="signin-form" onSubmit={handleSubmit}>
-              <img className="signin-logo" src={logo} alt="logo" />
-              <h2>Sign up to Adax</h2>
+              <h2 className="sign-in-heading">Sign up to Dr. Clue</h2>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control

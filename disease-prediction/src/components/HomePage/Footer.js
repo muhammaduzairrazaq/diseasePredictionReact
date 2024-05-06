@@ -7,7 +7,7 @@ import {
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import logo from "../../assets/logoo.png";
+import logo from "../../assets/Logo.png";
 
 import "../../App.css";
 
@@ -34,7 +34,7 @@ export const Footer = () => {
                 <FontAwesomeIcon icon={faSquareGithub} size="2xl" color="#215CEC" />
               </a>
             </div>
-            <p>&copy; 2023 Your Adax. All rights reserved.</p>
+            <p>&copy; 2023 Your Dr. Clue. All rights reserved.</p>
           </section>
         </Col>
       </Row>
