@@ -740,6 +740,43 @@ a {
 
 /* ChatBot.js */
 
+.add-tip {
+  background-color: transparent;
+  border: 1px solid whitesmoke;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  color: black;
+  padding: 5px;
+  height: 100px;
+  width: 255px;
+  position: absolute;
+  top: 26rem;
+}
+
+.add-tip p {
+  color: red;
+}
+
+.display-none {
+  display: none;
+}
+
+.disabled {
+  opacity: 0 !important;
+}
+
+.cross-icon {
+  font-size: 25px;
+  color: red;
+  margin-left: 200px;
+  margin-top: 5px;
+}
+
+.tip-bulb {
+  width: 20px;
+  margin-bottom: 11px;
+}
+
 .main-chatbot-container {
   display: flex;
   justify-content: flex-start;

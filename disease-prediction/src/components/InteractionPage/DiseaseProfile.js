@@ -27,9 +27,9 @@ export const DiseaseProfile = () => {
       return response;
     } catch (error) {
       if (error.message.includes("400")) {
-        alert("Account not registered");
+        console.log("Account not registered");
       } else {
-        alert(error.message);
+        console.log(error.message);
       }
     }
   };
@@ -46,9 +46,9 @@ export const DiseaseProfile = () => {
       return response;
     } catch (error) {
       if (error.message.includes("400")) {
-        alert("Report ID is required");
+        console.log("Report ID is required");
       } else {
-        alert(error.message);
+        console.log(error.message);
       }
     }
   };

@@ -7,7 +7,11 @@ import { useSpeechSynthesis } from "react-speech-kit";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { faCaretRight, faMicrophone } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCaretRight,
+  faL,
+  faMicrophone,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../App.css";
 import Count from "../../context/Counter";
@@ -19,6 +23,7 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
   const [isListening, setIsListening] = useState(false);
   const [textareaHeight, setTextareaHeight] = useState(40);
   const { speak } = useSpeechSynthesis();
+  const [flag, setFlag] = useState(false);
   const {
     chatBotMessageCount,
     setChatBotMessageCount,
@@ -71,6 +76,7 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
   };
 
   const chatbotResponse = () => {
+    setFlag(true);
     const textarea = document.getElementsByClassName("text-area")[0];
     const chatContainer = document.getElementsByClassName("chat-container")[0];
     const chatbotQuestions =
@@ -124,9 +130,24 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
             }
           }, 2000);
         }
+        setFlag(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
+        setTimeout(() => {
+          p.textContent = "Sorry! I am having some issues please try later";
+          if (bot === "voicebot") {
+            speakBot("Sorry! I am having some issues please try later");
+          }
+          const div = document.createElement("div");
+          div.appendChild(p);
+          div.classList.add("bot-message-container");
+          chatContainer.appendChild(div);
+          chatbotQuestions.classList.remove("chatbot-questions-hide");
+          respondingContainer.classList.remove("responding-tag-show");
+          div.scrollIntoView({ behavior: "smooth", block: "end" });
+          setFlag(false);
+        }, 2000);
       });
   };
 
@@ -151,6 +172,10 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
       setChatBotMessageCount(chatBotMessageCount + 1);
       setUserResponseCount(userResponseCount + 1);
       setTextMessageCount(textMessageCount + 1);
+      const tip = document.getElementsByClassName("add-tip")[0];
+      if (userResponseCount % 3 === 0) {
+        tip.classList.remove("display-none");
+      }
       const div = document.createElement("div");
       if (bot === "chatbot") div.classList.add("user-message-container");
       else div.classList.add("voicebot-user-message-container");
@@ -251,7 +276,7 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
             <div className="forward-container" onClick={handleForward}>
               <FontAwesomeIcon
                 icon={faCaretRight}
-                className="chatbot-dots"
+                className={"chatbot-dots" + (flag ? " disabled" : "")}
                 style={{ color: maincolor }}
               />
             </div>

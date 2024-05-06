@@ -8,12 +8,12 @@ import logo from "../../assets/Logo.png";
 import bulb from "../../assets/bulb.svg";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMultiply } from "@fortawesome/free-solid-svg-icons";
 import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { Recored } from "./VoiceRecord";
 import Count from "../../context/Counter";
-import { Button } from "bootstrap";
 
 export const ChatBot = () => {
   const chatbotResponses = {
@@ -116,8 +116,14 @@ export const ChatBot = () => {
     setTextMessageCount(0);
     setVoiceMessageCount(0);
     document.body.style.background =
-    "linear-gradient(90deg, rgb(239, 242, 247) 0%, 7.60286%, rgb(237, 240, 249) 15.2057%, 20.7513%, rgb(235, 239, 248) 26.297%, 27.6386%, rgb(235, 239, 248) 28.9803%, 38.2826%, rgb(231, 237, 249) 47.585%, 48.1216%, rgb(230, 236, 250) 48.6583%, 53.1306%, rgb(228, 236, 249) 57.6029%, 61.5385%, rgb(227, 234, 250) 65.4741%, 68.7835%, rgb(222, 234, 250) 72.093%, 75.7603%, rgb(219, 230, 248) 79.4275%, 82.8265%, rgb(216, 229, 248) 86.2254%, 87.8354%, rgb(213, 228, 249) 89.4454%, 91.8605%, rgb(210, 226, 249) 94.2755%, 95.4383%, rgb(209, 225, 248) 96.6011%, 98.3005%, rgb(208, 224, 247) 100%)";
+      "linear-gradient(90deg, rgb(239, 242, 247) 0%, 7.60286%, rgb(237, 240, 249) 15.2057%, 20.7513%, rgb(235, 239, 248) 26.297%, 27.6386%, rgb(235, 239, 248) 28.9803%, 38.2826%, rgb(231, 237, 249) 47.585%, 48.1216%, rgb(230, 236, 250) 48.6583%, 53.1306%, rgb(228, 236, 249) 57.6029%, 61.5385%, rgb(227, 234, 250) 65.4741%, 68.7835%, rgb(222, 234, 250) 72.093%, 75.7603%, rgb(219, 230, 248) 79.4275%, 82.8265%, rgb(216, 229, 248) 86.2254%, 87.8354%, rgb(213, 228, 249) 89.4454%, 91.8605%, rgb(210, 226, 249) 94.2755%, 95.4383%, rgb(209, 225, 248) 96.6011%, 98.3005%, rgb(208, 224, 247) 100%)";
   };
+
+  // function to close the tip box
+  const handleCrossClick = () => {
+    const tip = document.getElementsByClassName('add-tip')[0];
+    tip.classList.add('display-none');
+  }
 
   return (
     <Container>
@@ -166,6 +172,11 @@ export const ChatBot = () => {
                   </Link>
                 </div>
                 <div className="chat-container">
+                  <div className="add-tip display-none">
+                    <img className="tip-bulb" src={bulb} alt="bulb" />
+                    <FontAwesomeIcon icon={faMultiply} onClick={handleCrossClick} className="cross-icon" />
+                    <p>Enter more symptoms to enhance diagnosis accuracy.</p>
+                  </div>
                   <div className="bot-message-container">
                     <p>Hi, I am Dr. Clue how can I help you?</p>
                   </div>
