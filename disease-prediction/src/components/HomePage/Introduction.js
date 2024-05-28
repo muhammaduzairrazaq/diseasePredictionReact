@@ -30,6 +30,10 @@ export const Introduction = () => {
             <button onClick={handleBotButton}>
               <span>Start symptom assessment</span>
             </button>
+            <br />
+            <button className="dr-clue-button">
+              <span>Consult Dr. Clue</span>
+            </button>
           </section>
         </Col>
         <Col xs={12} md={6}>
