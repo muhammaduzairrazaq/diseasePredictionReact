@@ -172,11 +172,15 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
       setUserResponseCount(userResponseCount + 1);
       setTextMessageCount(textMessageCount + 1);
       const tip = document.getElementsByClassName("add-tip")[0];
-      if (userResponseCount % 3 === 0) {
+      if (bot !== "clue" && userResponseCount % 3 === 0) {
         tip.classList.remove("display-none");
       }
       const div = document.createElement("div");
       if (bot === "chatbot") div.classList.add("user-message-container");
+      else if (bot === "clue") {
+        div.classList.add("user-message-container");
+        div.classList.add("clue-color");
+      }
       else div.classList.add("voicebot-user-message-container");
       const p = document.createElement("p");
       p.textContent = textarea.value;

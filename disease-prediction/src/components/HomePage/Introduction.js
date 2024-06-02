@@ -19,6 +19,19 @@ export const Introduction = () => {
     }
   };
 
+  const handleClueButton = () => {
+    const userEmail = localStorage.getItem("email");
+    const userStatus = localStorage.getItem("status");
+
+    if (userEmail && userStatus) {
+      navigate("/clue");
+      document.body.style.background =
+        "linear-gradient(to right, #16bffd4f, #cb306646)";
+    } else {
+      navigate("/signin");
+    }
+  };
+
   return (
     <Container>
       <Row>
@@ -31,7 +44,7 @@ export const Introduction = () => {
               <span>Start symptom assessment</span>
             </button>
             <br />
-            <button className="dr-clue-button">
+            <button className="dr-clue-button" onClick={handleClueButton}>
               <span>Consult Dr. Clue</span>
             </button>
           </section>

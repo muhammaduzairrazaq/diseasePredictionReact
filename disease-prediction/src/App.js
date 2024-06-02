@@ -11,6 +11,7 @@ import { DiseaseProfile } from "./components/InteractionPage/DiseaseProfile";
 import Count from "./context/Counter";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
+import { Clue } from "./components/InteractionPage/Clue";
 
 function App() {
   const [chatBotMessageCount, setChatBotMessageCount] = useState(1);
@@ -39,6 +40,7 @@ function App() {
             <Route path="signin" element={<SignIn />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="chatbot" element={<ChatBot />} />
+            <Route path="clue" element={<Clue />} />
             <Route path="voicebot" element={<VoiceBot />} />
             <Route path="diseasereport" element={<DiseaseReport />} />
             <Route path="healthprofiles" element={<HealthProfile />} />

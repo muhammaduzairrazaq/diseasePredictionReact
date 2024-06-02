@@ -7,6 +7,7 @@ body {
   min-block-size: 100vh;
   font-family: "Nanum Myeongjo", sans-serif !important;
   background: linear-gradient(90deg, rgb(239, 242, 247) 0%, 7.60286%, rgb(237, 240, 249) 15.2057%, 20.7513%, rgb(235, 239, 248) 26.297%, 27.6386%, rgb(235, 239, 248) 28.9803%, 38.2826%, rgb(231, 237, 249) 47.585%, 48.1216%, rgb(230, 236, 250) 48.6583%, 53.1306%, rgb(228, 236, 249) 57.6029%, 61.5385%, rgb(227, 234, 250) 65.4741%, 68.7835%, rgb(222, 234, 250) 72.093%, 75.7603%, rgb(219, 230, 248) 79.4275%, 82.8265%, rgb(216, 229, 248) 86.2254%, 87.8354%, rgb(213, 228, 249) 89.4454%, 91.8605%, rgb(210, 226, 249) 94.2755%, 95.4383%, rgb(209, 225, 248) 96.6011%, 98.3005%, rgb(208, 224, 247) 100%);
+background:linear-gradient(to right, #16bffd4f, #cb306646);
 }
 
 /* NavBar.js */
@@ -488,7 +489,7 @@ a {
 }
 
 .dr-clue-button:hover {
-  box-shadow: 3px 3px 4px #b20a2c !important;
+  box-shadow: 3px 3px 4px #b20a2c9c !important;
 }
 
 .message-logo {
@@ -760,10 +761,50 @@ a {
   border-radius: 10px;
   color: black;
   padding: 5px;
-  height: 100px;
+  height: auto;
   width: 255px;
   position: absolute;
   top: 26rem;
+}
+
+.clue-tip {
+  width: auto;
+  max-width: 700px;
+}
+
+.message-clue {
+display: flex;
+justify-content: center;
+gap: 1rem;
+}
+
+.m1-clue, .m2-clue {
+  width: 50%;
+  margin: 0 !important;
+}
+
+.divide-clue {
+  border-left: 0.2px solid rgba(255, 0, 0, 0.356);
+
+}
+
+
+
+.bulb-cross {
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 5px;
+}
+
+.clue-bulb {
+  margin: 0 !important;
+}
+
+.cross-icon-clue {
+  font-size: 25px;
+  color: red;
 }
 
 .add-tip p {
@@ -816,7 +857,25 @@ a {
   border-radius: 10px;
 }
 
+.chatbot-message-box-clue {
+  min-width: 340px;
+  background-color: #215CEC;
+  background: linear-gradient(to right, #16BFFD, #CB3066);
+  color: white;
+  padding: 5px;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+}
+
+.clue-color {
+  background: linear-gradient(to right, #16BFFD, #CB3066);
+}
+
 .chatbot-message-box p {
+  padding: 10px;
+}
+
+.chatbot-message-box-clue p {
   padding: 10px;
 }
 
@@ -829,6 +888,19 @@ a {
   gap: 0.7rem;
   border-radius: 10px;
   display: none;
+}
+
+.clue-border-color {
+  border: 1px solid #CB3066;
+}
+
+.clue-fill-color {
+  background-color: #CB3066 !important;
+  border: none !important;
+}
+
+.clue-responding {
+  color: #CB3066 !important;
 }
 
 .responding-tag-show {
@@ -894,7 +966,7 @@ a {
   background-color: #215CEC;
   color: white;
   padding: 10px;
-  border: 1px solid #215CEC;
+  border: none;
   box-shadow: var(--shadow);
   border-radius: 10px;
 }
@@ -986,6 +1058,28 @@ a {
   border-top-color: #215CEC;
 }
 
+.custom-tooltip-clue .tooltip-inner {
+  background-color: white;
+  color: white;
+  background: linear-gradient(to right, #16BFFD, #CB3066);
+}
+
+.custom-tooltip-clue.bs-tooltip-top .tooltip-arrow::before {
+  background: linear-gradient(to right, #16BFFD, #CB3066);
+}
+
+.restart-button-clue {
+  background: linear-gradient(to right, #16BFFD, #CB3066);
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  width: 50px;
+  height: 50px;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+}
+
 .chatbot-questions {
   display: flex;
   gap: 1rem;
@@ -1006,6 +1100,14 @@ a {
   padding: 8px;
   background-color: white;
   color: #215CEC;
+}
+
+.questions-clue {
+  border: 1px solid #CB3066;
+  border-radius: 10px;
+  padding: 8px;
+  background-color: white;
+  color: #CB3066;
 }
 
 .input-container {
