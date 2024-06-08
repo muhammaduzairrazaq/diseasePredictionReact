@@ -7,7 +7,6 @@ body {
   min-block-size: 100vh;
   font-family: "Nanum Myeongjo", sans-serif !important;
   background: linear-gradient(90deg, rgb(239, 242, 247) 0%, 7.60286%, rgb(237, 240, 249) 15.2057%, 20.7513%, rgb(235, 239, 248) 26.297%, 27.6386%, rgb(235, 239, 248) 28.9803%, 38.2826%, rgb(231, 237, 249) 47.585%, 48.1216%, rgb(230, 236, 250) 48.6583%, 53.1306%, rgb(228, 236, 249) 57.6029%, 61.5385%, rgb(227, 234, 250) 65.4741%, 68.7835%, rgb(222, 234, 250) 72.093%, 75.7603%, rgb(219, 230, 248) 79.4275%, 82.8265%, rgb(216, 229, 248) 86.2254%, 87.8354%, rgb(213, 228, 249) 89.4454%, 91.8605%, rgb(210, 226, 249) 94.2755%, 95.4383%, rgb(209, 225, 248) 96.6011%, 98.3005%, rgb(208, 224, 247) 100%);
-background:linear-gradient(to right, #16bffd4f, #cb306646);
 }
 
 /* NavBar.js */
@@ -479,11 +478,29 @@ a {
 
 }
 
+.medical-report-btn {
+  width: 200px !important;
+}
+
+.upload-report-btn {
+  width: auto;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-size: 12px !important;
+  background: linear-gradient(to right, #333333, #dd1818);
+}
+
+.upload-report-btn:hover {
+  background: linear-gradient(to right, #333333a4, #dd1818a4);
+}
+
 .dr-clue-button {
   width: 160px !important;
   height: 40px;
   border-radius: 20px;
-  margin-top: 40px !important;
+  margin-top: 19px !important;
   background: linear-gradient(to right, #16BFFD, #CB3066);
   border: none !important;
 }
@@ -752,6 +769,30 @@ a {
   height: 40px;
 }
 
+/* Upload pdf */
+
+#upload-pdf{
+  display: none;
+}
+
+.green-color {
+  color: green !important;
+}
+
+.red-color {
+  color: red !important;
+}
+
+.error {
+  margin: 0 !important;
+}
+
+.success {
+  color: green !important;
+  margin: 0 !important;
+}
+
+
 /* ChatBot.js */
 
 .add-tip {
@@ -765,6 +806,26 @@ a {
   width: 255px;
   position: absolute;
   top: 26rem;
+}
+
+/* Define the shake animation using keyframes */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10% { transform: translateX(-10px); }
+  20% { transform: translateX(10px); }
+  30% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  50% { transform: translateX(-10px); }
+  60% { transform: translateX(10px); }
+  70% { transform: translateX(-10px); }
+  80% { transform: translateX(10px); }
+  90% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+.tip-animation {
+  display: inline-block;
+  animation: shake 0.5s;
 }
 
 .clue-tip {

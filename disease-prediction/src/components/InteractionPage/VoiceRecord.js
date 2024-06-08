@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../App.css";
 import Count from "../../context/Counter";
 import { useNavigate } from "react-router-dom";
-export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
+export const Recored = ({ maincolor = "#215CEC", bot = "chatbot", medicalreport = "" }) => {
   const { transcript, browserSupportsSpeechRecognition } =
     useSpeechRecognition();
 
@@ -48,16 +48,45 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
 
     const session_id = userResponseCount <= 0 ? "1" : "0";
     try {
+      if(bot === "clue") {
+        const response = await axios.post(
+          "https://pipefish-hip-aphid.ngrok-free.app",
+          {
+            query: query,
+            session_id: session_id,
+            email: userEmail,
+            bot: "clue",
+            reporttext: medicalreport,
+          }
+        );
+        return response;
+      }
+      else if(bot === "areport") {
+        const response = await axios.post(
+          "https://pipefish-hip-aphid.ngrok-free.app",
+          {
+            query: query,
+            session_id: session_id,
+            email: userEmail,
+            bot: "areport",
+            reporttext: medicalreport,
+          }
+        );
+        return response;
+      }
+      else {
       const response = await axios.post(
         "https://pipefish-hip-aphid.ngrok-free.app",
         {
           query: query,
           session_id: session_id,
           email: userEmail,
+          bot: bot,
+          reporttext: medicalreport,
         }
       );
-
       return response;
+    }
     } catch (error) {
       console.error("Error:", error);
     }
@@ -88,6 +117,67 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
     chatbotQuestions.classList.add("chatbot-questions-hide");
     respondingContainer.classList.add("responding-tag-show");
     // calling fetchData and update p.textContent with the response data
+    if(bot === "clue") {
+      fetchData(user_query)
+      .then((response) => {
+        p.textContent = response.data.response;
+        const div = document.createElement("div");
+        div.appendChild(p);
+        div.classList.add("bot-message-container");
+        chatContainer.appendChild(div);
+        chatbotQuestions.classList.remove("chatbot-questions-hide");
+        respondingContainer.classList.remove("responding-tag-show");
+        div.scrollIntoView({ behavior: "smooth", block: "end" });
+
+        setFlag(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setTimeout(() => {
+          p.textContent = "Sorry! I am having some issues please try later";
+          const div = document.createElement("div");
+          div.appendChild(p);
+          div.classList.add("bot-message-container");
+          chatContainer.appendChild(div);
+          chatbotQuestions.classList.remove("chatbot-questions-hide");
+          respondingContainer.classList.remove("responding-tag-show");
+          div.scrollIntoView({ behavior: "smooth", block: "end" });
+          setFlag(false);
+        }, 2000);
+      });
+    }
+
+    else if(bot === "areport") {
+      fetchData(user_query)
+      .then((response) => {
+        p.textContent = response.data.response;
+        const div = document.createElement("div");
+        div.appendChild(p);
+        div.classList.add("bot-message-container");
+        chatContainer.appendChild(div);
+        chatbotQuestions.classList.remove("chatbot-questions-hide");
+        respondingContainer.classList.remove("responding-tag-show");
+        div.scrollIntoView({ behavior: "smooth", block: "end" });
+
+        setFlag(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setTimeout(() => {
+          p.textContent = "Sorry! I am having some issues please try later";
+          const div = document.createElement("div");
+          div.appendChild(p);
+          div.classList.add("bot-message-container");
+          chatContainer.appendChild(div);
+          chatbotQuestions.classList.remove("chatbot-questions-hide");
+          respondingContainer.classList.remove("responding-tag-show");
+          div.scrollIntoView({ behavior: "smooth", block: "end" });
+          setFlag(false);
+        }, 2000);
+      });
+    }
+
+    else {
     fetchData(user_query)
       .then((response) => {
         p.textContent = response.data.response;
@@ -148,13 +238,23 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
           setFlag(false);
         }, 2000);
       });
+    }
   };
 
   const handleForward = () => {
+    const textarea = document.getElementsByClassName("text-area")[0];
+    const uploadReportContainer = document.getElementsByClassName("add-tip")[0];
+
+    if(bot === "areport" && medicalreport === "" && textarea.value !== "") {
+      uploadReportContainer.classList.remove('tip-animation');
+  // Force a reflow by accessing a property that triggers layout
+  void uploadReportContainer.offsetWidth;
+  uploadReportContainer.classList.add('tip-animation');
+      return;
+    }
     const chatContainer = document.getElementsByClassName("chat-container")[0];
     const inputContainer =
       document.getElementsByClassName("input-container")[0];
-    const textarea = document.getElementsByClassName("text-area")[0];
 
     setTextareaHeight(40);
 
@@ -168,15 +268,16 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
     }
 
     if (textarea.value !== "") {
+      document.getElementsByClassName('add-tip')[0].classList.add('display-none');
       setChatBotMessageCount(chatBotMessageCount + 1);
       setUserResponseCount(userResponseCount + 1);
       setTextMessageCount(textMessageCount + 1);
       const tip = document.getElementsByClassName("add-tip")[0];
-      if (bot !== "clue" && userResponseCount % 3 === 0) {
+      if (bot !== "clue" && bot !== "areport" && userResponseCount % 3 === 0) {
         tip.classList.remove("display-none");
       }
       const div = document.createElement("div");
-      if (bot === "chatbot") div.classList.add("user-message-container");
+      if (bot === "chatbot" || bot === "areport") div.classList.add("user-message-container");
       else if (bot === "clue") {
         div.classList.add("user-message-container");
         div.classList.add("clue-color");
@@ -276,6 +377,7 @@ export const Recored = ({ maincolor = "#215CEC", bot = "chatbot" }) => {
                 style={{ color: maincolor }}
               />
             </div>
+           
             <div className="forward-container" onClick={handleForward}>
               <FontAwesomeIcon
                 icon={faCaretRight}
