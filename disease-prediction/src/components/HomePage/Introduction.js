@@ -58,7 +58,7 @@ export const Introduction = () => {
             </button>
             <br />
             <button className="medical-report-btn"  onClick={handleAnalyzeReportButton}>
-              <span>Analyze Medical Report</span>
+              <span>Analyze medical report</span>
             </button>
             <br />
             <button className="dr-clue-button" onClick={handleClueButton}>
